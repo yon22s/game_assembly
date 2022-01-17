@@ -1062,18 +1062,22 @@ PROC addroad
 	je road_2cmp
 	mov [road_1_y], 2
 	mov [road_1], 1
+	jmp nomoreroads
 
 road_2cmp:
 	cmp [road_2], 1
 	je road_3cmp
 	mov [road_2_y], 2
 	mov [road_2], 1
+	jmp nomoreroads
 
 road_3cmp:
-	cmp [road_2], 1
-	je road_2cmp
-	mov [road_2_y], 2
-	mov [road_2], 1
+	cmp [road_3], 1
+	je nomoreroads
+	mov [road_3_y], 2
+	mov [road_3], 1
+
+nomoreroads:
 
 	popa
 	ret
