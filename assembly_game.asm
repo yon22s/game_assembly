@@ -26,11 +26,55 @@ Duck    db 't','t','t','t','t','t','t','t',08h,'t',0eh,'t',0eh,'t',08h,'t','t','
         db 't','t','t','t','t','t','t','t',08h,'t',,0fh,'t',0fh,'t',08h,'t','t','t','t','t','t','t','t',"n"
         db 't','t','t','t','t','t','t','t',08h,'t',08h,'t',08h,'t',08h,'t','t','t','t','t','t','t','t','t',"n"
         db "$"
+
 x_pos dw 150
 y_pos dw 180
 
 cube_size db 20
 cubecolor db 15
+
+
+Car     db ,'t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t','t',"n"
+        db ,'t',0ch,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',0fh,'t','t','t','t',"n"
+        db ,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t',"n"
+        db ,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t','t',"n"
+        db ,'t',0ch,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',0fh,'t','t','t','t',"n"
+        db ,'t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t','t',"n"
+        db "$"
+
+
+Carleft db ,'t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"t",'t','t','t','t','t','t','t','t','t',"n"
+        db ,'t','t','t','t',0fh,'t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',0ch,'t',"n"
+        db ,'t','t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',"n"
+        db ,'t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t','t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',"n"
+        db ,'t','t','t','t',0fh,'t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',0ch,'t',"n"
+        db ,'t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"t",'t','t','t','t','t','t','t','t','t',"n"
+        db "$"
+
 
 score dw 0
 multi dw 0
@@ -646,8 +690,7 @@ ENDP check_lose
 PROC move_car_left
 	pusha
 
-	mov [carcolor], 0
-	call DrawCar
+	call removecar
 
 	cmp [car_y], 180
 	jg car_disappear_down
@@ -669,7 +712,6 @@ car_disappear_right:
 	jmp passeverything_
 	
 drawcarcall:
-	mov [carcolor], 4
 	call DrawCar
 	mov [cars], 1
 	
@@ -685,8 +727,7 @@ ENDP move_car_left
 PROC move_car_right
 	pusha
 
-	mov [carcolor], 0
-	call DrawCar
+	call removecar
 
 	cmp [car_y], 180
 	jg car_disappear_down_r
@@ -708,8 +749,7 @@ car_disappear_left:
 	jmp passeverything
 	
 drawcarcall_r:
-	mov [carcolor], 4
-	call DrawCar
+	call DrawCaright
 	mov [cars], 1
 	
 passeverything:
@@ -797,8 +837,6 @@ continue:
 	mov al, 20h
 	mov bl, 0
 	int 10h
-	
-	mov [carcolor], 4
 
 	call roads_cars_loop
 
@@ -952,72 +990,119 @@ drawcube:
 ENDP cubeDraw
 
 
-PROC DrawCar 
+PROC removecar
 	pusha
 
-	mov ah, [car_size_x]
+	mov ah, 30
+	mov bh, 18
 	mov cx, [car_x]
 	mov dx, [car_y]
 
-drowupcar:
-	mov al, [carcolor]
+fillcar:
+	mov al, 0
 	call PixelDrow
 	INC cx
 	DEC ah
 
 	CMP ah, 0
-	JNE drowupcar
+	JNE fillcar
 
-
-	mov al, [car_size_y]
+	mov ah, 30
 	mov cx, [car_x]
-	mov dx, [car_y]
-	add dx, ax
-	mov ah, [car_size_x]
-	
-drowdowncar:
-	mov al, [carcolor]
-	call PixelDrow
-	INC cx
-	DEC ah
+	inc dx
+	DEC bh
 
-	CMP ah, 0
-	JNE drowdowncar
-
-	mov ah, [car_size_y]
-	mov cx, [car_x]
-	mov dx, [car_y]
-	
-drowleftcar:
-	mov al, [carcolor]
-	call PixelDrow
-	INC dx
-	DEC ah
-
-	CMP ah, 0
-	JNE drowleftcar
-
-
-	mov al, [car_size_x]
-	mov cx, [car_x]
-	mov dx, [car_y]
-	add cx, ax
-	mov ah, [car_size_y]
-	inc ah
-
-drowrightcar:
-	mov al, [carcolor]
-	call PixelDrow
-	INC dx
-	DEC ah
-
-	CMP ah, 0
-	JNE drowrightcar
+	cmp bh, 0
+	jne fillcar
 
 	popa
 	ret
-	
+ENDP removecar
+
+
+PROC DrawCar 
+	pusha
+
+	mov cx, [car_x]
+	mov dx, [car_y]
+    ; cx = x, dx = y
+    mov bx, offset Car
+
+Carloop:
+    mov al, [bx]
+    add bx, 1
+
+    cmp al, '$'
+    je endc
+
+    cmp al, 't'
+    je got_tt
+
+    cmp al, "n"
+    je got_nn
+
+        ; need cx = x, dx = y, al = color
+    mov ah, 0ch
+    int 10h
+
+    jmp Carloop
+
+got_tt:
+    add cx, 1
+    jmp Carloop
+        
+got_nn:
+    add dx, 1
+    mov cx, [car_x]
+    jmp Carloop
+
+endc:
+
+        popa
+        ret
 ENDP DrawCar
+
+PROC DrawCaright
+	pusha
+
+	mov cx, [car_x]
+	mov dx, [car_y]
+    ; cx = x, dx = y
+    mov bx, offset Carleft
+
+Carloopr:
+    mov al, [bx]
+    add bx, 1
+
+    cmp al, '$'
+    je endb
+
+    cmp al, 't'
+    je got_ttt
+
+    cmp al, "n"
+    je got_nnn
+
+        ; need cx = x, dx = y, al = color
+    mov ah, 0ch
+    int 10h
+
+    jmp Carloopr
+
+got_ttt:
+    add cx, 1
+    jmp Carloopr
+        
+got_nnn:
+    add dx, 1
+    mov cx, [car_x]
+    jmp Carloopr
+
+endb:
+
+        popa
+        ret
+ENDP DrawCaright
 
 
 PROC randomnum10
