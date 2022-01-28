@@ -47,10 +47,10 @@ car_size_x db 33
 car_size_y db 20
 
 random dw 0
-leftright db 0
 carsonscrine db 3
 roadsonscrine db 3
 
+roadway db 0
 road_1 dw 1
 road_1_y dw 102
 road_3 dw 1
@@ -58,6 +58,7 @@ road_3_y dw 2
 road_2 dw 1
 road_2_y dw 52
 
+timedelay db 0
 car_1 dw 1
 car_1_x dw 1
 car_1_y dw 105
@@ -184,6 +185,7 @@ road1:
 	mov ax, [road_1_y]
 	mov [road_y], ax
 	call roadDraw
+	call randomcarleft
 	mov ax, [roads]
 	mov [road_1], ax
 road2:
@@ -192,6 +194,7 @@ road2:
 	mov ax, [road_2_y]
 	mov [road_y], ax
 	call roadDraw
+	call randomcaright
 	mov ax, [roads]
 	mov [road_2], ax
 road3:
@@ -200,6 +203,7 @@ road3:
 	mov ax, [road_3_y]
 	mov [road_y], ax
 	call roadDraw
+	call randomcarleft
 	mov ax, [roads]
 	mov [road_3], ax
 
@@ -215,6 +219,8 @@ car1:
 	
 	call move_car_left
 
+	mov ax, [cars]
+	mov [car_1], ax
 	mov ax, [car_x]
 	mov [car_1_x], ax
 	mov ax, [car_y]
@@ -233,6 +239,8 @@ car2:
 
 	call move_car_right
 
+	mov ax, [cars]
+	mov [car_2], ax
 	mov ax, [car_x]
 	mov [car_2_x], ax
 	mov ax, [car_y]
@@ -251,6 +259,8 @@ car3:
 
 	call move_car_left
 
+	mov ax, [cars]
+	mov [car_3], ax
 	mov ax, [car_x]
 	mov [car_3_x], ax
 	mov ax, [car_y]
@@ -642,7 +652,7 @@ PROC move_car_left
 	cmp [car_y], 180
 	jg car_disappear_down
 
-	cmp [car_x], 319
+	cmp [car_x], 285
 	jg car_disappear_right
 
 	add [car_x], 3
@@ -1047,6 +1057,7 @@ PROC randomroad
 	jl tomuchr
 
 	call addroad
+	inc [roadsonscrine]
 
 tomuchr:
 
@@ -1084,25 +1095,108 @@ nomoreroads:
 ENDP addroad
 
 
-PROC randomcar
+PROC randomcaright
 	pusha
 
+	cmp [timedelay], 15
+	jl tomuchc
 	cmp [carsonscrine], 4
 	je tomuchc
+	mov [timedelay], 0
 
 	call randomnum10
-	mov ax, [random]
-	mov bx, 
-	cmp [random], 8
-	jg tomuchc
+	mov ax, [score]
+	mov bl, 10
+	div bl ; al = ax/10
+	and ax, 0ffh
+	add ax, [random]
+	cmp ax, 9
+	jl tomuchc
 
-	;call addcar
+	call addcaright
 
 tomuchc:
+	inc [timedelay]
 
 	popa
 	ret
-ENDP randomcar
+ENDP randomcaright
+
+PROC randomcarleft
+	pusha
+
+	cmp [timedelay], 15
+	jl tomuchcl
+	cmp [carsonscrine], 4
+	je tomuchcl
+	mov [timedelay], 0
+
+	call randomnum10
+	mov ax, [score]
+	mov bl, 10
+	div bl ; al = ax/10
+	and ax, 0ffh
+	add ax, [random]
+	cmp ax, 9
+	jl tomuchcl
+
+	call addcarleft
+
+tomuchcl:
+	inc [timedelay]
+
+	popa
+	ret
+ENDP randomcarleft
+
+
+PROC addcarleft
+	pusha
+
+	mov ax, [road_y]
+	add ax, 3
+
+	cmp [car_1], 1
+	je car_3cmp
+	mov [car_1_y], ax
+	mov [car_1_x], 0
+	mov [car_1], 1
+	inc [carsonscrine]
+	jmp nomorecarsl
+
+car_3cmp:
+	cmp [car_3], 1
+	je nomorecarsl
+	mov [car_3_y], ax
+	mov [car_3_x], 0
+	mov [car_3], 1
+	inc [carsonscrine]
+
+nomorecarsl:
+
+	popa
+	ret
+ENDP addcarleft
+
+PROC addcaright
+	pusha
+
+	mov ax, [road_y]
+	add ax, 3
+
+	cmp [car_2], 1
+	je nomorecarsr
+	mov [car_2_y], ax
+	mov [car_2_x], 285
+	mov [car_2], 1
+	inc [carsonscrine]
+	jmp nomorecarsr
+
+nomorecarsr:
+
+	popa
+	ret
+ENDP addcaright
 
 
 PROC multiply
