@@ -642,7 +642,7 @@ PROC move_car_left
 	cmp [car_y], 180
 	jg car_disappear_down
 
-	cmp [car_x], 285
+	cmp [car_x], 319
 	jg car_disappear_right
 
 	add [car_x], 3
@@ -1091,7 +1091,9 @@ PROC randomcar
 	je tomuchc
 
 	call randomnum10
-	cmp [random], 10
+	mov ax, [random]
+	mov bx, 
+	cmp [random], 8
 	jg tomuchc
 
 	;call addcar
