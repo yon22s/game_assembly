@@ -86,6 +86,7 @@ car_y dw 0
 roads dw 0
 road_y dw 0
 
+drawinsideroad dw 0
 road_size_y db 25
 car_size_x db 33
 car_size_y db 20
@@ -216,6 +217,8 @@ PROC starts
 	mov [car_y], ax
 	call DrawCar
 
+	call printscore
+
 	ret
 ENDP starts
 
@@ -313,10 +316,53 @@ car3:
     call check_lose
 
 return:
+	call printscore
 
 	popa
 	ret
 endp roads_cars_loop
+
+
+PROC displaycars
+	pusha
+
+	; car 1
+	cmp [car_1], 0
+	je car22
+	mov ax, [car_1_x]
+	mov [car_x], ax
+	mov ax, [car_1_y]
+	mov [car_y], ax
+	
+	call DrawCar
+
+car22:
+	; car 2
+	cmp [car_2], 0
+	je car33
+	mov ax, [car_2_x]
+	mov [car_x], ax
+	mov ax, [car_2_y]
+	mov [car_y], ax
+
+	call drawcaright
+
+car33:
+	; car 3
+	cmp [car_3], 0
+	je endisplay
+	mov ax, [car_3_x]
+	mov [car_x], ax
+	mov ax, [car_3_y]
+	mov [car_y], ax
+
+	call DrawCar
+
+endisplay:
+
+	popa
+	ret
+ENDP displaycars
 
 
 
@@ -352,7 +398,77 @@ downroad:
 
 	cmp cx, 320
 	jl downroad
+
+
+	mov [drawinsideroad], 5
+
+start_cubefill:
+	mov ah, 16
+	mov cx, [drawinsideroad]
+	mov dx, [road_y]
+	add dx, 9
+
+drowupcube:
+	mov al, 0fh
+	call PixelDrow
+	INC cx
+	DEC ah
+
+	CMP ah, 0
+	JNE drowupcube
+
+
+	mov al, 8
+	mov cx, [drawinsideroad]
+	mov dx, [road_y]
+	add dx, 15
+	mov ah, 16
+	
+drowdowncube:
+	mov al, 0fh
+	call PixelDrow
+	INC cx
+	DEC ah
+
+	CMP ah, 0
+	JNE drowdowncube
+
+	mov ah, 7
+	mov cx, [drawinsideroad]
+	mov dx, [road_y]
+	add dx, 9
+	
+drowleftcar:
+	mov al, 0fh
+	call PixelDrow
+	INC dx
+	DEC ah
+
+	CMP ah, 0
+	JNE drowleftcar
+
+
+	mov al, 16
+	mov cx, [drawinsideroad]
+	add cx, 16
+	mov dx, [road_y]
+	add dx, 9
+	mov ah, 7
+
+drowrightcar:
+	mov al, 0fh
+	call PixelDrow
+	INC dx
+	DEC ah
+
+	CMP ah, 0
+	JNE drowrightcar
+
+	add [drawinsideroad], 29
+	cmp [drawinsideroad], 310
+	jl start_cubefill
 	jmp roadonscrine
+
 
 
 disappear_dowd_road:
@@ -360,6 +476,9 @@ disappear_dowd_road:
 	dec [roadsonscrine]
 
 roadonscrine:
+	call printscore
+	call displaycars
+	call printduck
 
 	popa
 	ret
@@ -681,6 +800,7 @@ somethingetpressed:
 	call starts
 
 keep_play:
+	call printscore
 
 	popa
 	ret
@@ -698,7 +818,7 @@ PROC move_car_left
 	cmp [car_x], 285
 	jg car_disappear_right
 
-	add [car_x], 3
+	add [car_x], 4
 	jmp drawcarcall
 
 car_disappear_down:
@@ -717,6 +837,7 @@ drawcarcall:
 	
 passeverything_:
 	call printduck
+	call printscore
 
 	popa
 	ret
@@ -735,7 +856,7 @@ PROC move_car_right
 	cmp [car_x], 4
 	jl car_disappear_left
 
-	sub [car_x], 3
+	sub [car_x], 4
 	jmp drawcarcall_r
 
 car_disappear_down_r:
@@ -754,6 +875,7 @@ drawcarcall_r:
 	
 passeverything:
 	call printduck
+	call printscore
 
 	popa
 	ret
@@ -850,9 +972,29 @@ ENDP move_cube
 PROC printscore
 	pusha
 
-	;mov dl, [score]
-	;mov ah, 2
-	;int 21h
+	mov ah, 20
+	mov bh, 20
+	mov cx, 0
+	mov dx, 0
+
+blackcube:
+	mov al, 0
+	call PixelDrow
+	INC cx
+	DEC ah
+
+	CMP ah, 0
+	JNE blackcube
+
+	mov ah, 20
+	mov cx, 0
+	inc dx
+	DEC bh
+
+	cmp bh, 0
+	jne blackcube
+
+
 
 	popa
 	ret
@@ -1183,7 +1325,7 @@ ENDP addroad
 PROC randomcaright
 	pusha
 
-	cmp [timedelay], 15
+	cmp [timedelay], 5
 	jl tomuchc
 	cmp [carsonscrine], 4
 	je tomuchc
@@ -1210,7 +1352,7 @@ ENDP randomcaright
 PROC randomcarleft
 	pusha
 
-	cmp [timedelay], 15
+	cmp [timedelay], 5
 	jl tomuchcl
 	cmp [carsonscrine], 4
 	je tomuchcl
