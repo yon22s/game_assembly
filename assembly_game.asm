@@ -93,6 +93,7 @@ road_size_y db 25
 car_size_x db 33
 car_size_y db 20
 
+random_count db 0
 random dw 0
 carsonscrine db 3
 roadsonscrine db 3
@@ -176,6 +177,7 @@ PROC starts
     mov [road_3_y], 2
 	mov [score], 0
 	mov [text_units_score], "0"
+	mov [random_count], 0
 
 	;; get time
     mov ah, 2Ch 
@@ -934,6 +936,7 @@ PROC move_cube
 
 up_pressed:
 	inc [score]
+	inc [random_count]
 	;call printscore
 
 	cmp [y_pos], 110
@@ -1010,6 +1013,12 @@ printext:
 
 	add al, 30h ; mov to ascii
 	mov [text_units_score], al
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 01h ; row
+	mov dl, 01h ; column
+	int 10h
 
 	mov ah, 09h ; write string to standart output
 	lea dx, [text_units_score]
@@ -1278,7 +1287,18 @@ PROC randomnum255
     ; div cx ;  dx contains the remain of the division - from 0 to 9
     ; inc dx
     ; mov [random], dx
-	
+
+	cmp [random_count], 20
+	jl keep_random
+	;; get time
+    mov ah, 2Ch 
+    int 21h
+
+    ;; set seed as secs:mi secs
+    mov [random], dx
+	mov [random_count], 0
+
+keep_random:
 	xor dx, dx
 
     mov ax, [random]
@@ -1352,7 +1372,7 @@ ENDP addroad
 PROC randomcaright
 	pusha
 
-	cmp [timedelay], 5
+	cmp [timedelay], 15
 	jl tomuchc
 	cmp [carsonscrine], 4
 	je tomuchc
@@ -1379,7 +1399,7 @@ ENDP randomcaright
 PROC randomcarleft
 	pusha
 
-	cmp [timedelay], 5
+	cmp [timedelay], 15
 	jl tomuchcl
 	cmp [carsonscrine], 4
 	je tomuchcl
