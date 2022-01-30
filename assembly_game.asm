@@ -467,6 +467,7 @@ drowrightcar:
 	add [drawinsideroad], 29
 	cmp [drawinsideroad], 310
 	jl start_cubefill
+	call displaycars
 	jmp roadonscrine
 
 
@@ -477,7 +478,6 @@ disappear_dowd_road:
 
 roadonscrine:
 	call printscore
-	call displaycars
 	call printduck
 
 	popa
@@ -818,7 +818,7 @@ PROC move_car_left
 	cmp [car_x], 285
 	jg car_disappear_right
 
-	add [car_x], 4
+	add [car_x], 3
 	jmp drawcarcall
 
 car_disappear_down:
@@ -856,7 +856,7 @@ PROC move_car_right
 	cmp [car_x], 4
 	jl car_disappear_left
 
-	sub [car_x], 4
+	sub [car_x], 3
 	jmp drawcarcall_r
 
 car_disappear_down_r:
