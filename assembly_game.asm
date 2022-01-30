@@ -76,8 +76,11 @@ Carleft db ,'t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t',
         db "$"
 
 
+start_over_messege db "Press any button to Play Agine", '$'
+hundreds_score db 0
+text_hundreds_score db "0", '$'
 text_units_score db "0", '$'
-text__score db "0"
+text_dozens_score db "0", '$'
 score dw 0
 multi dw 0
 
@@ -807,6 +810,17 @@ newgame:
 newgame1:
     mov ah, 01h
 	int 16h
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 12h ; row
+	mov dl, 04h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [start_over_messege]
+	int 21h
+
 	jnz somethingetpressed ; pressed something
     jmp newgame1
 somethingetpressed:
@@ -985,7 +999,7 @@ ENDP move_cube
 PROC printscore
 	pusha
 
-	mov ah, 20
+	mov ah, 25
 	mov bh, 20
 	mov cx, 0
 	mov dx, 0
@@ -999,7 +1013,7 @@ blackcube:
 	CMP ah, 0
 	JNE blackcube
 
-	mov ah, 20
+	mov ah, 25
 	mov cx, 0
 	inc dx
 	DEC bh
@@ -1011,8 +1025,35 @@ printext:
 	xor ax, ax
 	mov ax, [score]
 
+	mov bl, 100
+	div bl
+	
+	mov [hundreds_score], al
+
 	add al, 30h ; mov to ascii
-	mov [text_units_score], al
+	mov [text_hundreds_score], al
+
+	mov cl, ah
+	xor ax, ax
+	mov al, cl
+
+	mov bl, 10
+	div bl
+
+	add ah, 30h ; mov to ascii
+	mov [text_units_score], ah
+	add al, 30h ; mov to ascii
+	mov [text_dozens_score], al
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 01h ; row
+	mov dl, 02h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [text_units_score]
+	int 21h
 
 	mov ah, 02h ; cursor position
 	mov bh, 00h ; page number
@@ -1021,7 +1062,18 @@ printext:
 	int 10h
 
 	mov ah, 09h ; write string to standart output
-	lea dx, [text_units_score]
+	lea dx, [text_dozens_score]
+	int 21h
+
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 01h ; row
+	mov dl, 00h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [text_hundreds_score]
 	int 21h
 
 	popa
