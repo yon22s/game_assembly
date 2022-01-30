@@ -76,6 +76,8 @@ Carleft db ,'t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t',
         db "$"
 
 
+text_units_score db "0", '$'
+text__score db "0"
 score dw 0
 multi dw 0
 
@@ -172,6 +174,15 @@ PROC starts
     mov [road_1_y], 102
     mov [road_2_y], 52
     mov [road_3_y], 2
+	mov [score], 0
+	mov [text_units_score], "0"
+
+	;; get time
+    mov ah, 2Ch 
+    int 21h
+
+    ;; set seed as secs:mi secs
+    mov [random], dx
 
     mov ah, 09h
 	mov cx, 1000h
@@ -844,7 +855,6 @@ passeverything_:
 
 ENDP move_car_left
 
-
 PROC move_car_right
 	pusha
 
@@ -994,7 +1004,16 @@ blackcube:
 	cmp bh, 0
 	jne blackcube
 
+printext:
+	xor ax, ax
+	mov ax, [score]
 
+	add al, 30h ; mov to ascii
+	mov [text_units_score], al
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [text_units_score]
+	int 21h
 
 	popa
 	ret
@@ -1247,22 +1266,32 @@ endb:
 ENDP DrawCaright
 
 
-PROC randomnum10
+PROC randomnum255
 	pusha
 
-	mov ah,0h ; interrupts to get system time
-    int 1ah
+	; mov ah,0h ; interrupts to get system time
+    ; int 1ah
 
-    mov ax,dx
-    xor dx,dx
-    mov cx,10
-    div cx ;  dx contains the remain of the division - from 0 to 9
-    inc dx
-    mov [random], dx
+    ; mov ax,dx
+    ; xor dx,dx
+    ; mov cx,10
+    ; div cx ;  dx contains the remain of the division - from 0 to 9
+    ; inc dx
+    ; mov [random], dx
 	
+	xor dx, dx
+
+    mov ax, [random]
+    mov dx, 25173
+    imul dx
+
+    add  ax, 13849
+    xor  ax, 62832
+    mov  [random], ax
+
 	popa
 	ret
-ENDP randomnum10
+ENDP randomnum255
 
 
 PROC randomroad
@@ -1271,17 +1300,15 @@ PROC randomroad
 	cmp [roadsonscrine], 3
 	je tomuchr
 
-	call randomnum10
+	call randomnum255
+	xor ax, ax
 	mov ax, [random]
-	mov bx, 10
-	call multiply
+	xor bx, bx
+	mov bx, [score]
+	add bl, 80
 
-	add [multi], ax
-	mov ax, [score]
-	add [multi], ax
-
-	cmp [multi], 100
-	jl tomuchr
+	cmp al, bl
+	jg tomuchr
 
 	call addroad
 	inc [roadsonscrine]
@@ -1331,14 +1358,14 @@ PROC randomcaright
 	je tomuchc
 	mov [timedelay], 0
 
-	call randomnum10
-	mov ax, [score]
-	mov bl, 10
-	div bl ; al = ax/10
-	and ax, 0ffh
-	add ax, [random]
-	cmp ax, 9
-	jl tomuchc
+	call randomnum255
+	xor ax, ax
+	mov ax, [random]
+	xor bx, bx
+	mov bx, [score]
+	add bl, 10
+	cmp al, bl
+	jg tomuchc
 
 	call addcaright
 
@@ -1358,14 +1385,14 @@ PROC randomcarleft
 	je tomuchcl
 	mov [timedelay], 0
 
-	call randomnum10
-	mov ax, [score]
-	mov bl, 10
-	div bl ; al = ax/10
-	and ax, 0ffh
-	add ax, [random]
-	cmp ax, 9
-	jl tomuchcl
+	call randomnum255
+	xor ax, ax
+	mov ax, [random]
+	xor bx, bx
+	mov bx, [score]
+	add bl, 10
+	cmp al, bl
+	jg tomuchc
 
 	call addcarleft
 
