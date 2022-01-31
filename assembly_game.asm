@@ -119,6 +119,9 @@ car_3_y dw 5
 car_2 dw 1
 car_2_x dw 285
 car_2_y dw 55
+car_4 dw 0
+car_4_x dw 0
+car_4_y dw 0
 
 
 CODESEG
@@ -172,6 +175,7 @@ PROC starts
     mov [car_1], 1
     mov [car_2], 1
     mov [car_3], 1
+	mov [car_4], 0
     mov [road_1], 1
     mov [road_2], 1
     mov [road_3], 1
@@ -314,7 +318,7 @@ car2:
 car3:
 	; car 3
 	cmp [car_3], 0
-	je return
+	je car4
 	mov ax, [car_3_x]
 	mov [car_x], ax
 	mov ax, [car_3_y]
@@ -328,6 +332,26 @@ car3:
 	mov [car_3_x], ax
 	mov ax, [car_y]
 	mov [car_3_y], ax
+
+    call check_lose
+
+car4:
+	; car 4
+	cmp [car_4], 0
+	je return
+	mov ax, [car_4_x]
+	mov [car_x], ax
+	mov ax, [car_4_y]
+	mov [car_y], ax
+
+	call move_car_right
+
+	mov ax, [cars]
+	mov [car_4], ax
+	mov ax, [car_x]
+	mov [car_4_x], ax
+	mov ax, [car_y]
+	mov [car_4_y], ax
 
     call check_lose
 
@@ -366,13 +390,24 @@ car22:
 car33:
 	; car 3
 	cmp [car_3], 0
-	je endisplay
+	je car44
 	mov ax, [car_3_x]
 	mov [car_x], ax
 	mov ax, [car_3_y]
 	mov [car_y], ax
 
 	call DrawCar
+
+car44:
+	; car 4
+	cmp [car_4], 0
+	je endisplay
+	mov ax, [car_4_x]
+	mov [car_x], ax
+	mov ax, [car_4_y]
+	mov [car_y], ax
+
+	call drawcaright
 
 endisplay:
 
@@ -845,7 +880,7 @@ PROC move_car_left
 	cmp [car_x], 285
 	jg car_disappear_right
 
-	add [car_x], 3
+	add [car_x], 4
 	jmp drawcarcall
 
 car_disappear_down:
@@ -882,7 +917,7 @@ PROC move_car_right
 	cmp [car_x], 4
 	jl car_disappear_left
 
-	sub [car_x], 3
+	sub [car_x], 4
 	jmp drawcarcall_r
 
 car_disappear_down_r:
@@ -972,6 +1007,7 @@ everythingUp:
 	add [car_1_y], 25
 	add [car_3_y], 25
 	add [car_2_y], 25
+	add [car_4_y], 25
 	add [road_1_y], 25
 	add [road_3_y], 25
 	add [road_2_y], 25
@@ -1399,20 +1435,67 @@ PROC addroad
 	je road_2cmp
 	mov [road_1_y], 2
 	mov [road_1], 1
-	jmp nomoreroads
+	jmp left_odd
 
 road_2cmp:
 	cmp [road_2], 1
 	je road_3cmp
 	mov [road_2_y], 2
 	mov [road_2], 1
-	jmp nomoreroads
+	jmp right_even
 
 road_3cmp:
 	cmp [road_3], 1
 	je nomoreroads
 	mov [road_3_y], 2
 	mov [road_3], 1
+	jmp left_odd
+
+left_odd:
+	cmp [car_1], 1
+	je car_3cmp_road
+	mov ax, [random]
+	mov [car_1_y], 5
+	mov ah, 0
+	mov [car_1_x], ax
+	mov [car_1], 1
+	inc [carsonscrine]
+	jmp nomoreroads
+
+car_3cmp_road:
+	cmp [car_3], 1
+	je nomoreroads
+	mov ax, [random]
+	mov [car_3_y], 5
+	mov ah, 0
+	sub al, 100
+	mov [car_3_x], ax
+	mov [car_3], 1
+	inc [carsonscrine]
+	jmp nomoreroads
+
+right_even:
+	cmp [car_2], 1
+	je car_4cmp_road
+	mov ax, [random]
+	mov [car_2_y], 5
+	mov ah, 0
+	mov [car_2_x], ax
+	mov [car_2], 1
+	inc [carsonscrine]
+	jmp nomoreroads
+
+car_4cmp_road:
+	cmp [car_4], 1
+	je nomoreroads
+	mov ax, [random]
+	mov [car_4_y], 5
+	mov ah, 0
+	sub al, 100
+	mov [car_4_x], ax
+	mov [car_4], 1
+	inc [carsonscrine]
+	jmp nomoreroads
 
 nomoreroads:
 
@@ -1511,10 +1594,19 @@ PROC addcaright
 	add ax, 3
 
 	cmp [car_2], 1
-	je nomorecarsr
+	je car_4cmp
 	mov [car_2_y], ax
 	mov [car_2_x], 285
 	mov [car_2], 1
+	inc [carsonscrine]
+	jmp nomorecarsr
+
+car_4cmp:
+	cmp [car_4], 1
+	je nomorecarsr
+	mov [car_4_y], ax
+	mov [car_4_x], 285
+	mov [car_4], 1
 	inc [carsonscrine]
 	jmp nomorecarsr
 
