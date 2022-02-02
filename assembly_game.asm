@@ -82,7 +82,16 @@ text_hundreds_score db "0", '$'
 text_units_score db "0", '$'
 text_dozens_score db "0", '$'
 score dw 0
+max_hundreds_score db 0
+max_text_hundreds_score db "0", '$'
+max_text_units_score db "0", '$'
+max_text_dozens_score db "0", '$'
+max_score dw 0
 multi dw 0
+
+second_now db 0
+second_count db 0
+showtime_count dw 0
 
 carcolor db 4
 cars dw 0
@@ -108,6 +117,8 @@ road_3 dw 1
 road_3_y dw 2
 road_2 dw 1
 road_2_y dw 52
+road_4 dw 0
+road_4_y dw 0
 
 timedelay db 0
 car_1 dw 1
@@ -195,6 +206,7 @@ PROC starts
     mov [road_1], 1
     mov [road_2], 1
     mov [road_3], 1
+	mov [road_4], 0
     mov [road_1_y], 102
     mov [road_2_y], 52
     mov [road_3_y], 2
@@ -282,13 +294,22 @@ road2:
 	mov [road_2], ax
 road3:
 	cmp [road_3], 0
-	je car1
+	je road4
 	mov ax, [road_3_y]
 	mov [road_y], ax
 	call roadDraw
 	call randomcarleft
 	mov ax, [roads]
 	mov [road_3], ax
+road4:
+	cmp [road_4], 0
+	je car1
+	mov ax, [road_4_y]
+	mov [road_y], ax
+	call roadDraw
+	call randomcaright
+	mov ax, [roads]
+	mov [road_4], ax
 
 
 car1:
@@ -1155,6 +1176,7 @@ everythingUp:
 	add [road_1_y], 25
 	add [road_3_y], 25
 	add [road_2_y], 25
+	add [road_4_y], 25
 	call randomroad
 	
 	call printscore
@@ -1180,7 +1202,7 @@ PROC printscore
 	pusha
 
 	mov ah, 25
-	mov bh, 20
+	mov bh, 25
 	mov cx, 0
 	mov dx, 0
 
@@ -1256,9 +1278,88 @@ printext:
 	lea dx, [text_hundreds_score]
 	int 21h
 
+prinmaxtext:
+	xor ax, ax
+	mov ax, [score]
+	mov bx, [max_score]
+	cmp ax, bx
+	jl keeprintmax
+	mov [max_score], ax
+	mov bx, ax
+
+keeprintmax:
+	mov ax, bx
+	mov bl, 100
+	div bl
+	
+	mov [max_hundreds_score], al
+
+	add al, 30h ; mov to ascii
+	mov [max_text_hundreds_score], al
+
+	mov cl, ah
+	xor ax, ax
+	mov al, cl
+
+	mov bl, 10
+	div bl
+
+	add ah, 30h ; mov to ascii
+	mov [max_text_units_score], ah
+	add al, 30h ; mov to ascii
+	mov [max_text_dozens_score], al
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 02h ; row
+	mov dl, 02h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [max_text_units_score]
+	int 21h
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 02h ; row
+	mov dl, 01h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [max_text_dozens_score]
+	int 21h
+
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 02h ; row
+	mov dl, 00h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [max_text_hundreds_score]
+	int 21h
+
 	popa
 	ret
 ENDP printscore
+
+
+PROC printime_limit
+	pusha
+	
+	; ;; get time
+    ; mov ah, 2Ch 
+    ; int 21h
+
+    ; mov [time_now], dh
+
+	; mov ah, [time_count]
+
+
+	popa
+	ret
+ENDP printime_limit
 
 
 PROC PixelDrow
@@ -1549,7 +1650,7 @@ ENDP randomnum255
 PROC randomroad
 	pusha
 
-	cmp [roadsonscrine], 3
+	cmp [roadsonscrine], 4
 	je tomuchr
 
 	call randomnum255
@@ -1591,10 +1692,17 @@ road_2cmp:
 
 road_3cmp:
 	cmp [road_3], 1
-	je nomoreroads
+	je road_4cmp
 	mov [road_3_y], 2
 	mov [road_3], 1
 	jmp left_odd
+
+road_4cmp:
+	cmp [road_4], 1
+	je nomoreroads
+	mov [road_4_y], 2
+	mov [road_4], 1
+	jmp right_even
 
 left_odd:
 	cmp [car_1], 1
@@ -1613,7 +1721,6 @@ car_3cmp_road:
 	mov ax, [random]
 	mov [car_3_y], 5
 	mov ah, 0
-	sub al, 100
 	mov [car_3_x], ax
 	mov [car_3], 1
 	inc [carsonscrine]
@@ -1625,7 +1732,7 @@ car_5cmp_road:
 	mov ax, [random]
 	mov [car_5_y], 5
 	mov ah, 0
-	sub al, 100
+	sub al, 50
 	mov [car_5_x], ax
 	mov [car_5], 1
 	inc [carsonscrine]
@@ -1637,7 +1744,7 @@ car_7cmp_road:
 	mov ax, [random]
 	mov [car_7_y], 5
 	mov ah, 0
-	sub al, 100
+	sub al, 50
 	mov [car_7_x], ax
 	mov [car_7], 1
 	inc [carsonscrine]
@@ -1660,7 +1767,6 @@ car_4cmp_road:
 	mov ax, [random]
 	mov [car_4_y], 5
 	mov ah, 0
-	sub al, 100
 	mov [car_4_x], ax
 	mov [car_4], 1
 	inc [carsonscrine]
@@ -1672,6 +1778,7 @@ car_6cmp_road:
 	mov ax, [random]
 	mov [car_6_y], 5
 	mov ah, 0
+	add al, 50
 	mov [car_6_x], ax
 	mov [car_6], 1
 	inc [carsonscrine]
@@ -1683,6 +1790,7 @@ car_8cmp_road:
 	mov ax, [random]
 	mov [car_8_y], 5
 	mov ah, 0
+	add al, 50
 	mov [car_8_x], ax
 	mov [car_8], 1
 	inc [carsonscrine]
@@ -1709,8 +1817,10 @@ PROC randomcaright
 	mov ax, [random]
 	xor bx, bx
 	mov bx, [score]
-	add bl, 10
-	cmp al, bl
+	add bx, 10
+	mov al, 0
+
+	cmp ax, bx
 	jg tomuchc
 
 	call addcaright
@@ -1736,8 +1846,10 @@ PROC randomcarleft
 	mov ax, [random]
 	xor bx, bx
 	mov bx, [score]
-	add bl, 10
-	cmp al, bl
+	add bx, 10
+	mov al, 0
+
+	cmp ax, bx
 	jg tomuchc
 
 	call addcarleft
