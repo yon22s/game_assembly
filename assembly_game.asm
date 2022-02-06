@@ -119,6 +119,10 @@ road_2 dw 1
 road_2_y dw 52
 road_4 dw 0
 road_4_y dw 0
+road_5 dw 0
+road_5_y dw 0
+road_6 dw 0
+road_6_y dw 0
 
 timedelay db 0
 car_1 dw 1
@@ -145,6 +149,12 @@ car_7_y dw 0
 car_8 dw 0
 car_8_x dw 0
 car_8_y dw 0
+car_9 dw 0
+car_9_x dw 0
+car_9_y dw 0
+car_10 dw 0
+car_10_x dw 0
+car_10_y dw 0
 
 
 CODESEG
@@ -203,10 +213,14 @@ PROC starts
 	mov [car_6], 0
 	mov [car_7], 0
 	mov [car_8], 0
+	mov [car_9], 0
+	mov [car_10], 0
     mov [road_1], 1
     mov [road_2], 1
     mov [road_3], 1
 	mov [road_4], 0
+	mov [road_5], 0
+	mov [road_6], 0
     mov [road_1_y], 102
     mov [road_2_y], 52
     mov [road_3_y], 2
@@ -303,13 +317,31 @@ road3:
 	mov [road_3], ax
 road4:
 	cmp [road_4], 0
-	je car1
+	je road5
 	mov ax, [road_4_y]
 	mov [road_y], ax
 	call roadDraw
 	call randomcaright
 	mov ax, [roads]
 	mov [road_4], ax
+road5:
+	cmp [road_5], 0
+	je road6
+	mov ax, [road_5_y]
+	mov [road_y], ax
+	call roadDraw
+	call randomcarleft
+	mov ax, [roads]
+	mov [road_5], ax
+road6:
+	cmp [road_6], 0
+	je car1
+	mov ax, [road_6_y]
+	mov [road_y], ax
+	call roadDraw
+	call randomcaright
+	mov ax, [roads]
+	mov [road_6], ax
 
 
 car1:
@@ -455,7 +487,7 @@ car7:
 car8:
 	; car 8
 	cmp [car_8], 0
-	je return
+	je car9
 	mov ax, [car_8_x]
 	mov [car_8], ax
 	mov ax, [car_8_y]
@@ -469,6 +501,46 @@ car8:
 	mov [car_8_x], ax
 	mov ax, [car_y]
 	mov [car_8_y], ax
+
+    call check_lose
+
+car9:
+	; car 9
+	cmp [car_9], 0
+	je car10
+	mov ax, [car_9_x]
+	mov [car_x], ax
+	mov ax, [car_9_y]
+	mov [car_y], ax
+
+	call move_car_left
+
+	mov ax, [cars]
+	mov [car_9], ax
+	mov ax, [car_x]
+	mov [car_9_x], ax
+	mov ax, [car_y]
+	mov [car_9_y], ax
+
+    call check_lose
+
+car10:
+	; car 10
+	cmp [car_10], 0
+	je return
+	mov ax, [car_10_x]
+	mov [car_10], ax
+	mov ax, [car_10_y]
+	mov [car_y], ax
+
+	call move_car_right
+
+	mov ax, [cars]
+	mov [car_10], ax
+	mov ax, [car_x]
+	mov [car_10_x], ax
+	mov ax, [car_y]
+	mov [car_10_y], ax
 
     call check_lose
 
@@ -562,10 +634,32 @@ car77:
 car88:
 	; car 8
 	cmp [car_8], 0
-	je endisplay
+	je car99
 	mov ax, [car_8_x]
 	mov [car_x], ax
 	mov ax, [car_8_y]
+	mov [car_y], ax
+
+	call drawcaright
+
+car99:
+	; car 9
+	cmp [car_9], 0
+	je car1010
+	mov ax, [car_9_x]
+	mov [car_x], ax
+	mov ax, [car_9_y]
+	mov [car_y], ax
+
+	call DrawCar
+
+car1010:
+	; car 10
+	cmp [car_10], 0
+	je endisplay
+	mov ax, [car_10_x]
+	mov [car_x], ax
+	mov ax, [car_10_y]
 	mov [car_y], ax
 
 	call drawcaright
@@ -1041,7 +1135,18 @@ PROC move_car_left
 	cmp [car_x], 285
 	jg car_disappear_right
 
-	add [car_x], 4
+	mov ax, [score]
+	mov bl, 35
+	div bl
+
+	add al, 3
+	mov ah, 0
+	cmp al, 6
+	jl continueleftcar
+	mov al, 6
+
+continueleftcar:
+	add [car_x], ax
 	jmp drawcarcall
 
 car_disappear_down:
@@ -1078,7 +1183,18 @@ PROC move_car_right
 	cmp [car_x], 4
 	jl car_disappear_left
 
-	sub [car_x], 4
+	mov ax, [score]
+	mov bl, 35
+	div bl
+
+	add al, 3
+	mov ah, 0
+	cmp al, 6
+	jl continuerightcar
+	mov al, 6
+
+continuerightcar:
+	sub [car_x], ax
 	jmp drawcarcall_r
 
 car_disappear_down_r:
@@ -1173,10 +1289,14 @@ everythingUp:
 	add [car_6_y], 25
 	add [car_7_y], 25
 	add [car_8_y], 25
+	add [car_9_y], 25
+	add [car_10_y], 25
 	add [road_1_y], 25
 	add [road_3_y], 25
 	add [road_2_y], 25
 	add [road_4_y], 25
+	add [road_5_y], 25
+	add [road_6_y], 25
 	call randomroad
 	
 	call printscore
@@ -1650,8 +1770,15 @@ ENDP randomnum255
 PROC randomroad
 	pusha
 
-	cmp [roadsonscrine], 4
-	je tomuchr
+	mov ax, [score]
+	mov bl, 30
+	div bl
+
+	add al, 2
+
+continuerandom:
+	cmp [roadsonscrine], al
+	jg tomuchr
 
 	call randomnum255
 	xor ax, ax
@@ -1699,10 +1826,25 @@ road_3cmp:
 
 road_4cmp:
 	cmp [road_4], 1
-	je nomoreroads
+	je road_5cmp
 	mov [road_4_y], 2
 	mov [road_4], 1
 	jmp right_even
+
+road_5cmp:
+	cmp [road_5], 1
+	je road_6cmp
+	mov [road_5_y], 2
+	mov [road_5], 1
+	jmp left_odd
+
+road_6cmp:
+	cmp [road_6], 1
+	je nomoreroads
+	mov [road_6_y], 2
+	mov [road_6], 1
+	jmp right_even
+
 
 left_odd:
 	cmp [car_1], 1
@@ -1740,13 +1882,25 @@ car_5cmp_road:
 
 car_7cmp_road:
 	cmp [car_7], 1
-	je nomoreroads
+	je car_9cmp_road
 	mov ax, [random]
 	mov [car_7_y], 5
 	mov ah, 0
 	sub al, 50
 	mov [car_7_x], ax
 	mov [car_7], 1
+	inc [carsonscrine]
+	jmp nomoreroads
+
+car_9cmp_road:
+	cmp [car_9], 1
+	je nomoreroads
+	mov ax, [random]
+	mov [car_9_y], 5
+	mov ah, 0
+	sub al, 50
+	mov [car_9_x], ax
+	mov [car_9], 1
 	inc [carsonscrine]
 	jmp nomoreroads
 
@@ -1786,13 +1940,25 @@ car_6cmp_road:
 
 car_8cmp_road:
 	cmp [car_8], 1
-	je nomoreroads
+	je car_10cmp_road
 	mov ax, [random]
 	mov [car_8_y], 5
 	mov ah, 0
 	add al, 50
 	mov [car_8_x], ax
 	mov [car_8], 1
+	inc [carsonscrine]
+	jmp nomoreroads
+
+car_10cmp_road:
+	cmp [car_10], 1
+	je nomoreroads
+	mov ax, [random]
+	mov [car_10_y], 5
+	mov ah, 0
+	add al, 50
+	mov [car_10_x], ax
+	mov [car_10], 1
 	inc [carsonscrine]
 	jmp nomoreroads
 
@@ -1806,10 +1972,10 @@ ENDP addroad
 PROC randomcaright
 	pusha
 
-	cmp [timedelay], 15
+	cmp [timedelay], 25
 	jl tomuchc
-	cmp [carsonscrine], 8
-	je tomuchc
+	cmp [carsonscrine], 9
+	jg tomuchc
 	mov [timedelay], 0
 
 	call randomnum255
@@ -1835,10 +2001,10 @@ ENDP randomcaright
 PROC randomcarleft
 	pusha
 
-	cmp [timedelay], 15
+	cmp [timedelay], 25
 	jl tomuchcl
-	cmp [carsonscrine], 8
-	je tomuchcl
+	cmp [carsonscrine], 9
+	jg tomuchcl
 	mov [timedelay], 0
 
 	call randomnum255
@@ -1894,10 +2060,18 @@ car_5cmp:
 
 car_7cmp:
 	cmp [car_7], 1
-	je nomorecarsl
+	je car_9cmp
 	mov [car_7_y], ax
 	mov [car_7_x], 0
 	mov [car_7], 1
+	inc [carsonscrine]
+
+car_9cmp:
+	cmp [car_9], 1
+	je nomorecarsl
+	mov [car_9_y], ax
+	mov [car_9_x], 0
+	mov [car_9], 1
 	inc [carsonscrine]
 
 nomorecarsl:
@@ -1940,10 +2114,19 @@ car_6cmp:
 
 car_8cmp:
 	cmp [car_8], 1
-	je nomorecarsr
+	je car_10cmp
 	mov [car_8_y], ax
 	mov [car_8_x], 285
 	mov [car_8], 1
+	inc [carsonscrine]
+	jmp nomorecarsr
+
+car_10cmp:
+	cmp [car_10], 1
+	je nomorecarsr
+	mov [car_10_y], ax
+	mov [car_10_x], 285
+	mov [car_10], 1
 	inc [carsonscrine]
 	jmp nomorecarsr
 
