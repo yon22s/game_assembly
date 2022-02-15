@@ -76,7 +76,7 @@ Carleft db ,'t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t',
         db "$"
 
 
-start_over_messege db "Press any button to Play Agine", '$'
+start_over_messege db "Press any button to Play Again", '$'
 hundreds_score db 0
 text_hundreds_score db "0", '$'
 text_units_score db "0", '$'
@@ -175,6 +175,7 @@ texttimelimitnum db "5", "$"
 
 
 
+pressEscbutton db "Press Esc button to see the rules", "$"
 score_text db "score", "$"
 best_score_text db "best score:", "$"
 timelimit_text db "time limit", "$"
@@ -182,16 +183,18 @@ rules_text db "rules: ", "$"
 ruleone_text db "press up button to move up.", "$"
 ruletow_text db "press right button to move right.", "$"
 rulethree_text db "press left button to move left.", "$"
-rulefour_text db "every time you move up, the score increase one!", "$"
+rulefour_text db "every time you move up, the score increased by one!", "$"
 rulefive_text db "do not hit the cars!!! if they hit you, you lose!", "$"
 rulesix_text db "pay attantion to the time limit, if it get to 0, yoe lose!", "$"
+start__messege db "Press any button to Start Play", "$"
+
+
 
 
 CODESEG
 start:
 	mov ax, @data
 	mov ds, ax
-
 	
 	; mov ah, 0
 	; int 1ah
@@ -199,6 +202,221 @@ start:
 	; xor dx, dx
 	; mov cx, 6
 	; div cx
+	call openscreen
+PROC openscreen
+    pusha
+    
+    mov  al, 02h   ; select display page 2
+    mov  ah, 05h   ; function 05h: select active display page
+    int  10h
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 01h ; row
+	mov dl, 02h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [score_text]
+	int 21h
+
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 02h ; row
+	mov dl, 00h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [best_score_text]
+	int 21h
+
+printbesttext:
+	xor ax, ax
+	mov ax, [score]
+	mov bx, [max_score]
+	cmp ax, bx
+	jl keeprintmax
+	mov [max_score], ax
+	mov bx, ax
+
+keeprintbest:
+	mov ax, bx
+	mov bl, 100
+	div bl
+	
+	mov [max_hundreds_score], al
+
+	add al, 30h ; mov to ascii
+	mov [max_text_hundreds_score], al
+
+	mov cl, ah
+	xor ax, ax
+	mov al, cl
+
+	mov bl, 10
+	div bl
+
+	add ah, 30h ; mov to ascii
+	mov [max_text_units_score], ah
+	add al, 30h ; mov to ascii
+	mov [max_text_dozens_score], al
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 02h ; row
+	mov dl, 06h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [max_text_units_score]
+	int 21h
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 02h ; row
+	mov dl, 05h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [max_text_dozens_score]
+	int 21h
+
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 02h ; row
+	mov dl, 05h ; column
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [max_text_hundreds_score]
+	int 21h
+
+
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 01h ; row
+	mov dl, 45h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [timelimit_text]
+	int 21h
+
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 05h ; row
+	mov dl, 08h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [rules_text]
+	int 21h
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 07h ; row
+	mov dl, 08h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [ruleone_text]
+	int 21h
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 09h ; row
+	mov dl, 08h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [ruletow_text]
+	int 21h
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 0ah ; row
+	mov dl, 08h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [rulethree_text]
+	int 21h
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 0bh ; row
+	mov dl, 08h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [rulefour_text]
+	int 21h
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 0dh ; row
+	mov dl, 08h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [rulefive_text]
+	int 21h
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 0fh ; row
+	mov dl, 08h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [rulesix_text]
+	int 21h
+
+
+
+    mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 17h ; row
+	mov dl, 07h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [start__messege]
+	int 21h
+
+startplaygame:
+    mov ah, 01h
+	int 16h
+
+	jnz aaaaaaa ; pressed something
+    jmp startplaygame
+
+aaaaaaa:
+    mov  al, 00h   ; select display page 0
+    mov  ah, 05h   ; function 05h: select active display page
+    int  10h
+
+	mov ax, 13h
+	int 10h
+    
+    call starts
+
+    popa
+ENDP openscreen
 
 	mov ax, 13h
 	int 10h
@@ -832,223 +1050,6 @@ ENDP displaycars
 
 
 
-PROC openscreen
-    pusha
-    
-    mov  al, 02h   ; select display page 2
-    mov  ah, 05h   ; function 05h: select active display page
-    int  10h
-
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 01h ; row
-	mov dl, 02h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [score_text]
-	int 21h
-
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 02h ; row
-	mov dl, 00h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [best_score_text]
-	int 21h
-
-printbesttext:
-	xor ax, ax
-	mov ax, [score]
-	mov bx, [max_score]
-	cmp ax, bx
-	jl keeprintmax
-	mov [max_score], ax
-	mov bx, ax
-
-keeprintbest:
-	mov ax, bx
-	mov bl, 100
-	div bl
-	
-	mov [max_hundreds_score], al
-
-	add al, 30h ; mov to ascii
-	mov [max_text_hundreds_score], al
-
-	mov cl, ah
-	xor ax, ax
-	mov al, cl
-
-	mov bl, 10
-	div bl
-
-	add ah, 30h ; mov to ascii
-	mov [max_text_units_score], ah
-	add al, 30h ; mov to ascii
-	mov [max_text_dozens_score], al
-
-	mov ah, 02h ; cursor position
-	mov bh, 00h ; page number
-	mov dh, 02h ; row
-	mov dl, 06h ; column
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [max_text_units_score]
-	int 21h
-
-	mov ah, 02h ; cursor position
-	mov bh, 00h ; page number
-	mov dh, 02h ; row
-	mov dl, 05h ; column
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [max_text_dozens_score]
-	int 21h
-
-
-	mov ah, 02h ; cursor position
-	mov bh, 00h ; page number
-	mov dh, 02h ; row
-	mov dl, 05h ; column
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [max_text_hundreds_score]
-	int 21h
-
-
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 01h ; row
-	mov dl, 45h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [timelimit_text]
-	int 21h
-
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 07h ; row
-	mov dl, 08h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [rules_text]
-	int 21h
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 09h ; row
-	mov dl, 08h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [ruleone_text]
-	int 21h
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 0ah ; row
-	mov dl, 08h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [ruletow_text]
-	int 21h
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 0bh ; row
-	mov dl, 08h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [rulethree_text]
-	int 21h
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 0dh ; row
-	mov dl, 08h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [rulefour_text]
-	int 21h
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 0fh ; row
-	mov dl, 08h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [rulefive_text]
-	int 21h
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 11h ; row
-	mov dl, 08h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [rulesix_text]
-	int 21h
-
-
-
-    mov ah, 02h ; cursor position
-	mov bh, 02h ; page number
-	mov dh, 17h ; row
-	mov dl, 07h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [start_over_messege]
-	int 21h
-
-startplaygame:
-    mov ah, 01h
-	int 16h
-
-	jnz aaaaaaa ; pressed something
-    jmp startplaygame
-
-aaaaaaa:
-    mov  al, 00h   ; select display page 0
-    mov  ah, 05h   ; function 05h: select active display page
-    int  10h
-
-	mov ax, 13h
-	int 10h
-    
-    call starts
-
-    popa
-    ret
-ENDP openscreen
-
 PROC roadDraw
 	pusha
 
@@ -1559,16 +1560,6 @@ draw_2_e_inside:
 
 
 newgame:
-	;waiting
-	mov ah, 86h
-	mov cx, 08
-	mov dx, 01
-	int 15h
-
-newgame1:
-    mov ah, 01h
-	int 16h
-
 	mov ah, 02h ; cursor position
 	mov bh, 00h ; page number
 	mov dh, 12h ; row
@@ -1579,10 +1570,40 @@ newgame1:
 	lea dx, [start_over_messege]
 	int 21h
 
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 14h ; row
+	mov dl, 03h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [pressEscbutton]
+	int 21h
+	;waiting
+	mov ah, 86h
+	mov cx, 08
+	mov dx, 01
+	int 15h
+
+newgame1:
+    mov ah, 01h
+	int 16h
+
+
 	jnz somethingetpressed ; pressed something
     jmp newgame1
 somethingetpressed:
+	mov ah, 00h
+	int 16h
+
+	cmp ah, 27
+	je go_rules
+
 	call starts
+	jmp keep_play
+
+go_rules:
+	call openscreen
 
 keep_play:
 	call printscore
