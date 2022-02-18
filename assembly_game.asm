@@ -183,9 +183,9 @@ rules_text db "rules: ", "$"
 ruleone_text db "press up button to move up.", "$"
 ruletow_text db "press right button to move right.", "$"
 rulethree_text db "press left button to move left.", "$"
-rulefour_text db "every time you move up, the score increased by one!", "$"
-rulefive_text db "do not hit the cars!!! if they hit you, you lose!", "$"
-rulesix_text db "pay attantion to the time limit, if it get to 0, yoe lose!", "$"
+rulefour_text db "when you move up, the score increased!", "$"
+rulefive_text db "if the far hit you, you lose!", "$"
+rulesix_text db "if the time limit get to 0 yoe lose!", "$"
 start__messege db "Press any button to Start Play", "$"
 
 
@@ -209,7 +209,7 @@ PROC openscreen
     mov  al, 02h   ; select display page 2
     mov  ah, 05h   ; function 05h: select active display page
     int  10h
-
+	
 
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
@@ -265,9 +265,9 @@ keeprintbest:
 	mov [max_text_dozens_score], al
 
 	mov ah, 02h ; cursor position
-	mov bh, 00h ; page number
+	mov bh, 02h ; page number
 	mov dh, 02h ; row
-	mov dl, 06h ; column
+	mov dl, 0eh ; column
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -275,9 +275,9 @@ keeprintbest:
 	int 21h
 
 	mov ah, 02h ; cursor position
-	mov bh, 00h ; page number
+	mov bh, 02h ; page number
 	mov dh, 02h ; row
-	mov dl, 05h ; column
+	mov dl, 0dh ; column
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -286,9 +286,9 @@ keeprintbest:
 
 
 	mov ah, 02h ; cursor position
-	mov bh, 00h ; page number
+	mov bh, 02h ; page number
 	mov dh, 02h ; row
-	mov dl, 05h ; column
+	mov dl, 0ch ; column
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -313,7 +313,7 @@ keeprintbest:
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 05h ; row
-	mov dl, 08h ; columns
+	mov dl, 03h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -324,7 +324,7 @@ keeprintbest:
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 07h ; row
-	mov dl, 08h ; columns
+	mov dl, 01h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -334,8 +334,8 @@ keeprintbest:
 
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
-	mov dh, 09h ; row
-	mov dl, 08h ; columns
+	mov dh, 08h ; row
+	mov dl, 01h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -345,8 +345,8 @@ keeprintbest:
 
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
-	mov dh, 0ah ; row
-	mov dl, 08h ; columns
+	mov dh, 09h ; row
+	mov dl, 01h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -357,7 +357,7 @@ keeprintbest:
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 0bh ; row
-	mov dl, 08h ; columns
+	mov dl, 01h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -368,7 +368,7 @@ keeprintbest:
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 0dh ; row
-	mov dl, 08h ; columns
+	mov dl, 01h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -379,7 +379,7 @@ keeprintbest:
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 0fh ; row
-	mov dl, 08h ; columns
+	mov dl, 01h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -391,7 +391,7 @@ keeprintbest:
     mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 17h ; row
-	mov dl, 07h ; columns
+	mov dl, 00h ; columns
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -406,6 +406,14 @@ startplaygame:
     jmp startplaygame
 
 aaaaaaa:
+	mov ah, 00h
+	int 16h
+
+	cmp al, 1bh
+	jne bbbbbb
+	jmp startplaygame
+
+bbbbbb:
     mov  al, 00h   ; select display page 0
     mov  ah, 05h   ; function 05h: select active display page
     int  10h
@@ -1190,6 +1198,27 @@ PROC timelimit
 
 	cmp [timelimitnum], 0
 	jg startprintlimit
+	
+	
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 12h ; row
+	mov dl, 04h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [start_over_messege]
+	int 21h
+
+	mov ah, 02h ; cursor position
+	mov bh, 00h ; page number
+	mov dh, 14h ; row
+	mov dl, 03h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [pressEscbutton]
+	int 21h
 
 	;waiting
 	mov ah, 86h
@@ -1201,20 +1230,26 @@ newgame11:
     mov ah, 01h
 	int 16h
 
-	mov ah, 02h ; cursor position
-	mov bh, 00h ; page number
-	mov dh, 12h ; row
-	mov dl, 04h ; columns
-	int 10h
-
-	mov ah, 09h ; write string to standart output
-	lea dx, [start_over_messege]
-	int 21h
-
 	jnz somethingetpressed1 ; pressed something
     jmp newgame11
 somethingetpressed1:
-	call starts
+	mov ah, 00h
+	int 16h
+
+	cmp al, 27
+	je go_rules1
+
+	jmp start_newgame
+
+go_rules1:
+	mov ah, 09h
+	mov cx, 1400h
+	mov al, 20h
+	mov bl, 0
+	int 10h
+	mov [timelimitnum], 5
+	mov [timelimitcountsec], 0
+	call openscreen
 
 
 startprintlimit:
@@ -1254,6 +1289,14 @@ endlimitloop:
 	lea dx, [texttimelimitnum]
 	int 21h
 
+	jmp dddddd
+
+start_newgame:
+	mov [timelimitnum], 5
+	mov [timelimitcountsec], 0
+	call starts
+
+dddddd:
 
 	popa
 	ret
@@ -1589,24 +1632,30 @@ newgame1:
     mov ah, 01h
 	int 16h
 
-
 	jnz somethingetpressed ; pressed something
     jmp newgame1
 somethingetpressed:
 	mov ah, 00h
 	int 16h
 
-	cmp ah, 27
+	cmp al, 27
 	je go_rules
 
 	call starts
 	jmp keep_play
 
 go_rules:
+	mov ah, 09h
+	mov cx, 1400h
+	mov al, 20h
+	mov bl, 0
+	int 10h
 	call openscreen
 
 keep_play:
 	call printscore
+
+cccccc:
 
 	popa
 	ret
