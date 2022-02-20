@@ -204,8 +204,6 @@ start:
 	; div cx
 	call openscreen
 PROC openscreen
-    pusha
-    
     mov  al, 02h   ; select display page 2
     mov  ah, 05h   ; function 05h: select active display page
     int  10h
@@ -267,7 +265,7 @@ keeprintbest:
 	mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 02h ; row
-	mov dl, 0eh ; column
+	mov dl, 0dh ; column
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -277,7 +275,7 @@ keeprintbest:
 	mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 02h ; row
-	mov dl, 0dh ; column
+	mov dl, 0ch ; column
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -288,7 +286,7 @@ keeprintbest:
 	mov ah, 02h ; cursor position
 	mov bh, 02h ; page number
 	mov dh, 02h ; row
-	mov dl, 0ch ; column
+	mov dl, 0bh ; column
 	int 10h
 
 	mov ah, 09h ; write string to standart output
@@ -422,8 +420,6 @@ bbbbbb:
 	int 10h
     
     call starts
-
-    popa
 ENDP openscreen
 
 	mov ax, 13h
@@ -2566,7 +2562,7 @@ ENDP addroad
 PROC randomcaright
 	pusha
 
-	cmp [timedelay], 22
+	cmp [timedelay], 18
 	jl tomuchc
 	cmp [carsonscrine], 14
 	jg tomuchc
@@ -2595,7 +2591,7 @@ ENDP randomcaright
 PROC randomcarleft
 	pusha
 
-	cmp [timedelay], 22
+	cmp [timedelay], 18
 	jl tomuchcl
 	cmp [carsonscrine], 14
 	jg tomuchcl
