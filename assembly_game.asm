@@ -184,8 +184,8 @@ ruleone_text db "press up button to move up.", "$"
 ruletow_text db "press right button to move right.", "$"
 rulethree_text db "press left button to move left.", "$"
 rulefour_text db "when you move up, the score increased!", "$"
-rulefive_text db "if the far hit you, you lose!", "$"
-rulesix_text db "if the time limit get to 0 yoe lose!", "$"
+rulefive_text db "if the car hit you, you lose!", "$"
+rulesix_text db "if the time limit get to 0 you lose!", "$"
 start__messege db "Press any button to Start Play", "$"
 
 
@@ -232,15 +232,7 @@ PROC openscreen
 	int 21h
 
 printbesttext:
-	xor ax, ax
-	mov ax, [score]
 	mov bx, [max_score]
-	cmp ax, bx
-	jl keeprintmax
-	mov [max_score], ax
-	mov bx, ax
-
-keeprintbest:
 	mov ax, bx
 	mov bl, 100
 	div bl
@@ -2562,7 +2554,12 @@ ENDP addroad
 PROC randomcaright
 	pusha
 
-	cmp [timedelay], 18
+	cmp [score], 85
+	jg rrrrrrrr
+	cmp [timedelay], 20
+	jl tomuchc
+rrrrrrrr:
+	cmp [timedelay], 15
 	jl tomuchc
 	cmp [carsonscrine], 14
 	jg tomuchc
@@ -2591,7 +2588,12 @@ ENDP randomcaright
 PROC randomcarleft
 	pusha
 
-	cmp [timedelay], 18
+	cmp [score], 85
+	jg rrrrrrr
+	cmp [timedelay], 20
+	jl tomuchcl
+rrrrrrr:
+	cmp [timedelay], 15
 	jl tomuchcl
 	cmp [carsonscrine], 14
 	jg tomuchcl
