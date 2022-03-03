@@ -34,46 +34,88 @@ cube_size db 20
 cubecolor db 15
 
 
-Car     db ,'t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t','t',"n"
-        db ,'t',0ch,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',0fh,'t','t','t','t',"n"
-        db ,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t','t',"n"
-        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t',"n"
-        db ,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t','t',"n"
-        db ,'t',0ch,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',0fh,'t','t','t','t',"n"
-        db ,'t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t','t',"n"
+Car     db ,'t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"n"
+        db ,'t',0ch,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',0fh,'t','t','t',"n"
+        db ,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db ,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',"n"
+        db ,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t','t',"n"
+        db ,'t',0ch,'t',0ch,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0fh,'t',0fh,'t','t','t',"n"
+        db ,'t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"n"
         db "$"
 
 
-Carleft db ,'t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"t",'t','t','t','t','t','t','t','t','t',"n"
-        db ,'t','t','t','t',0fh,'t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',0ch,'t',"n"
-        db ,'t','t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',"n"
-        db ,'t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
-        db ,'t','t','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',"n"
-        db ,'t','t','t','t',0fh,'t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',0ch,'t',"n"
-        db ,'t','t','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"t",'t','t','t','t','t','t','t','t','t',"n"
+Carleft db 't','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"t",'t','t','t','t','t','t','t','t','t',"n"
+        db 't','t','t',0fh,'t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',0ch,'t',"n"
+        db 't','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',"n"
+        db 't',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',"n"
+        db 't','t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',00h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',"n"
+        db 't','t','t',0fh,'t',0fh,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',04h,'t',0ch,'t',0ch,'t',"n"
+        db 't','t','t','t','t','t','t','t',04h,'t',04h,'t','t','t','t','t','t','t','t',"t",'t','t','t','t','t','t','t','t','t',"n"
         db "$"
+
+
+
+; bush1   db 't','t','t','t','t','t','t','t','t','t',35,35,35,'t','t','t','t','t','t','t','t','t','t','t','t','t',"n"
+; 		db 't','t','t','t','t','t','t','t',35,35,28,28,35,35,41,41,'t','t','t','t','t','t','t','t','t','t','t',"n"
+; 		db 't','t','t','t','t','t',35,35,28,28,28,35,35,41,41,41,'t','t','t','t','t','t','t','t','t',"n"
+; 		db 't','t','t','t',35,35,35,28,28,35,35,35,41,41,41,35,35,28,28,,'t','t','t','t','t','t','t',"n"
+; 		db 't','t','t','t',35,35,35,28,41,41,41,41,41,41,41,28,28,28,28,35,'t','t','t','t','t','t',"n"
+; 		db 't','t','t',35,35,35,41,41,41,41,41,41,41,41,41,35,35,35,35,35,'t','t','t','t','t','t',"n"
+; 		db 't','t','t',35,35,35,41,35,41,35,35,35,35,35,28,35,41,41,41,41,41,'t','t','t','t','t',"n"
+; 		db 't','t',35,35,35,34,35,35,35,34,34,34,34,34,34,34,34,34,34,34,34,41,35,'t','t','t',"n"
+; 		db 't','t',35,34,34,35,35,35,35,34,34,35,35,35,35,34,34,35,35,35,35,35,35,'t','t','t',"n"
+; 		db 't','t',35,34,35,35,35,35,34,34,34,34,35,34,34,35,35,35,35,35,35,35,35,,'t','t','t',"n"
+; 		db 't','t',35,34,35,35,35,28,28,28,35,34,34,34,34,34,34,34,34,35,28,35,35,'t','t','t',"n"
+; 		db 't',35,34,35,35,35,28,28,28,28,28,35,29,29,29,29,29,34,34,35,28,28,28,35,'t','t',"n"
+; 		db 't',35,34,34,34,34,34,34,34,35,35,35,35,35,35,35,35,34,34,34,34,34,28,28,28,'t','t',"n"
+; 		db 't',35,35,35,35,35,34,34,34,34,34,34,34,35,35,35,35,35,35,35,35,34,34,28,28,'t','t',"n"
+; 		db 29,35,35,35,35,35,35,35,35,35,34,34,35,34,34,34,35,35,35,35,34,34,34,34,28,'t','t',"n"
+; 		db 29,29,29,35,35,35,35,35,35,35,35,34,34,34,34,34,34,34,34,34,35,35,34,34,29,29,'t',"n"
+; 		db 35,29,35,35,35,35,35,35,35,35,35,35,35,35,34,35,36,36,36,36,36,35,29,29,34,29,29,'t',"n"
+; 		db 29,29,29,29,29,29,29,35,35,35,35,35,35,40,40,40,40,40,40,40,40,40,35,35,35,35,35,'t',"n"
+; 		db "$"
+
+bush1   db 't','t','t','t','t','t','t','t','t','t',2,'t',2,'t',2,'t','t','t','t','t','t','t','t','t','t','t','t','t',"n"
+		db 't','t','t','t','t','t','t','t',2,'t',2,'t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t','t','t','t','t','t','t','t','t','t','t',"n"
+		db 't','t','t','t','t','t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t',10,'t','t','t','t','t','t','t','t','t',"n"
+		db 't','t','t','t',2,'t',2,'t',2,'t',22,'t',22,'t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t',2,'t',2,'t',22,'t',22,'t','t','t','t','t','t','t',"n"
+		db 't','t','t','t',2,'t',2,'t',2,'t',22,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',22,'t',22,'t',22,'t',22,'t',2,'t','t','t','t','t','t',"n"
+		db 't','t','t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',2,'t',2,'t',2,'t',2,'t',2,'t','t','t','t','t','t',"n"
+		db 't','t','t',2,'t',2,'t',2,'t',10,'t',2,'t',10,'t',2,'t',2,'t',2,'t',2,'t',2,'t',22,'t',2,'t',10,'t',10,'t',10,'t',10,'t',10,'t','t','t','t','t',"n"
+		db 't','t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',10,'t',2,'t','t','t',"n"
+		db 't','t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t','t','t',"n"
+		db 't','t',2,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,,'t','t','t',"n"
+		db 't','t',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',22,'t',2,'t',2,'t','t','t',"n"
+		db 't',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',22,'t',22,'t',2,'t',29,'t',29,'t',29,'t',29,'t',29,'t',20,'t',20,'t',2,'t',22,'t',22,'t',22,'t',2,'t','t',"n"
+		db 't',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',22,'t',22,'t',22,'t','t',"n"
+		db 't',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',22,'t',22,'t','t',"n"
+		db 29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',22,'t','t',"n"
+		db 29,'t',29,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',20,'t',20,'t',29,'t',29,'t',"n"
+		db 2,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',2,'t',36,'t',36,'t',36,'t',36,'t',36,'t',2,'t',29,'t',29,'t',20,'t',29,'t',29,'t',"n"
+		db 29,'t',29,'t',29,'t',29,'t',29,'t',29,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',2,'t',2,'t',2,'t',2,'t',2,'t',"n"
+		db "$"
 
 
 start_over_messege db "Press any button to Play Again", '$'
@@ -167,6 +209,61 @@ car_13_y dw 0
 car_14 dw 0
 car_14_x dw 0
 car_14_y dw 0
+
+bushtuch db 0
+bushtuchleft db 0
+bushtuchright db 0
+bush_all dw 0
+bush_all_x dw 0
+bush_all_y dw 0
+bush_1 dw 0
+bush_1_x dw 0
+bush_1_y dw 0
+bush_2 dw 0
+bush_2_x dw 0
+bush_2_y dw 0
+bush_3 dw 0
+bush_3_x dw 0
+bush_3_y dw 0
+bush_4 dw 0
+bush_4_x dw 0
+bush_4_y dw 0
+bush_5 dw 0
+bush_5_x dw 0
+bush_5_y dw 0
+bush_6 dw 0
+bush_6_x dw 0
+bush_6_y dw 0
+bush_7 dw 0
+bush_7_x dw 0
+bush_7_y dw 0
+bush_8 dw 0
+bush_8_x dw 0
+bush_8_y dw 0
+bush_9 dw 0
+bush_9_x dw 0
+bush_9_y dw 0
+bush_10 dw 0
+bush_10_x dw 0
+bush_10_y dw 0
+bush_11 dw 0
+bush_11_x dw 0
+bush_11_y dw 0
+bush_12 dw 0
+bush_12_x dw 0
+bush_12_y dw 0
+bush_13 dw 0
+bush_13_x dw 0
+bush_13_y dw 0
+bush_14 dw 0
+bush_14_x dw 0
+bush_14_y dw 0
+bush_15 dw 0
+bush_15_x dw 0
+bush_15_y dw 0
+bush_16 dw 0
+bush_16_x dw 0
+bush_16_y dw 0
 
 
 timelimitcountsec dw 0
@@ -463,6 +560,22 @@ PROC starts
 	mov [car_12], 0
 	mov [car_13], 0
 	mov [car_14], 0
+	mov [bush_1], 0
+	mov [bush_2], 0
+	mov [bush_3], 0
+	mov [bush_4], 0
+	mov [bush_5], 0
+	mov [bush_6], 0
+	mov [bush_7], 0
+	mov [bush_8], 0
+	mov [bush_9], 0
+	mov [bush_10], 0
+	mov [bush_11], 0
+	mov [bush_12], 0
+	mov [bush_13], 0
+	mov [bush_14], 0
+	mov [bush_15], 0
+	mov [bush_16], 0
     mov [road_1], 1
     mov [road_2], 1
     mov [road_3], 1
@@ -856,7 +969,7 @@ car13:
 car14:
 	; car 14
 	cmp [car_14], 0
-	je return
+	je bsh1
 	mov ax, [car_14_x]
 	mov [car_14], ax
 	mov ax, [car_14_y]
@@ -872,6 +985,311 @@ car14:
 	mov [car_14_y], ax
 
     call check_lose
+
+bsh1:
+	cmp [bush_1], 0
+	je bsh2
+	mov ax, [bush_1_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_1_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_1_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_1_y], ax
+	mov ax, [bush_all]
+	mov [bush_1], ax
+
+	call check_duck_bushes
+
+bsh2:
+	cmp [bush_2], 0
+	je bsh3
+	mov ax, [bush_2_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_2_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_2_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_2_y], ax
+	mov ax, [bush_all]
+	mov [bush_2], ax
+
+	call check_duck_bushes
+
+bsh3:
+	cmp [bush_3], 0
+	je bsh4
+	mov ax, [bush_3_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_3_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_3_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_3_y], ax
+	mov ax, [bush_all]
+	mov [bush_3], ax
+
+	call check_duck_bushes
+
+bsh4:
+	cmp [bush_4], 0
+	je bsh5
+	mov ax, [bush_4_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_4_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_4_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_4_y], ax
+	mov ax, [bush_all]
+	mov [bush_4], ax
+
+	call check_duck_bushes
+
+bsh5:
+	cmp [bush_5], 0
+	je bsh6
+	mov ax, [bush_5_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_5_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_5_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_5_y], ax
+	mov ax, [bush_all]
+	mov [bush_5], ax
+
+	call check_duck_bushes
+
+bsh6:
+	cmp [bush_6], 0
+	je bsh7
+	mov ax, [bush_6_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_6_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_6_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_6_y], ax
+	mov ax, [bush_all]
+	mov [bush_6], ax
+
+	call check_duck_bushes
+
+bsh7:
+	cmp [bush_7], 0
+	je bsh8
+	mov ax, [bush_7_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_7_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_7_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_7_y], ax
+	mov ax, [bush_all]
+	mov [bush_7], ax
+
+	call check_duck_bushes
+
+bsh8:
+	cmp [bush_8], 0
+	je bsh9
+	mov ax, [bush_8_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_8_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_8_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_8_y], ax
+	mov ax, [bush_all]
+	mov [bush_8], ax
+
+	call check_duck_bushes
+
+bsh9:
+	cmp [bush_9], 0
+	je bsh10
+	mov ax, [bush_9_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_9_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_9_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_9_y], ax
+	mov ax, [bush_all]
+	mov [bush_9], ax
+
+	call check_duck_bushes
+
+bsh10:
+	cmp [bush_10], 0
+	je bsh11
+	mov ax, [bush_10_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_10_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_10_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_10_y], ax
+	mov ax, [bush_all]
+	mov [bush_10], ax
+
+	call check_duck_bushes
+
+bsh11:
+	cmp [bush_11], 0
+	je bsh12
+	mov ax, [bush_11_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_11_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_11_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_11_y], ax
+	mov ax, [bush_all]
+	mov [bush_11], ax
+
+	call check_duck_bushes
+
+bsh12:
+	cmp [bush_12], 0
+	je bsh13
+	mov ax, [bush_12_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_12_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_12_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_12_y], ax
+	mov ax, [bush_all]
+	mov [bush_12], ax
+
+	call check_duck_bushes
+
+bsh13:
+	cmp [bush_13], 0
+	je bsh14
+	mov ax, [bush_13_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_13_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_13_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_13_y], ax
+	mov ax, [bush_all]
+	mov [bush_13], ax
+
+	call check_duck_bushes
+
+bsh14:
+	cmp [bush_14], 0
+	je bsh15
+	mov ax, [bush_14_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_14_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_14_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_14_y], ax
+	mov ax, [bush_all]
+	mov [bush_14], ax
+
+	call check_duck_bushes
+
+bsh15:
+	cmp [bush_15], 0
+	je bsh16
+	mov ax, [bush_15_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_15_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_15_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_15_y], ax
+	mov ax, [bush_all]
+	mov [bush_15], ax
+
+	call check_duck_bushes
+
+bsh16:
+	cmp [bush_16], 0
+	je return
+	mov ax, [bush_16_x]
+	mov [bush_all_x], ax
+	mov ax, [bush_16_y]
+	mov [bush_all_y], ax
+
+	call printbush1
+
+	mov ax, [bush_all_x]
+	mov [bush_16_x], ax
+	mov ax, [bush_all_y]
+	mov [bush_16_y], ax
+	mov ax, [bush_all]
+	mov [bush_16], ax
+
+	call check_duck_bushes
+
 	
 return:
 	call timelimit
@@ -1177,7 +1595,7 @@ PROC timelimit
 
 	mov al, 0
 
-	cmp [timelimitcountsec], 20
+	cmp [timelimitcountsec], 23
 	jl startprintlimit
 
 	mov [timelimitcountsec], 0
@@ -1787,12 +2205,16 @@ PROC move_cube
 	jmp continue
 
 up_pressed:
+	cmp [bushtuch], 1
+	je continue
+
 	inc [score]
 	inc [random_count]
 	mov [timelimitnum], 5
 	mov [timelimitcountsec], 0
 	call printscore
 	call timelimit
+
 
 	cmp [y_pos], 110
 	jl everythingUp
@@ -1801,11 +2223,19 @@ up_pressed:
 left_pressed:
 	cmp [x_pos], 20
 	jl continue
+
+	cmp [bushtuchleft], 1
+	je continue
+
 	sub [x_pos], 25
 	JMP continue
 right_pressed:
 	cmp [x_pos], 280
 	jg continue
+
+	cmp [bushtuchright], 1
+	je continue
+
 	add [x_pos], 25
 	JMP continue
 
@@ -1830,7 +2260,25 @@ everythingUp:
 	add [road_4_y], 25
 	add [road_5_y], 25
 	add [road_6_y], 25
+	add [bush_1_y], 25
+	add [bush_2_y], 25
+	add [bush_3_y], 25
+	add [bush_4_y], 25
+	add [bush_5_y], 25
+	add [bush_6_y], 25
+	add [bush_7_y], 25
+	add [bush_8_y], 25
+	add [bush_9_y], 25
+	add [bush_10_y], 25
+	add [bush_11_y], 25
+	add [bush_12_y], 25
+	add [bush_13_y], 25
+	add [bush_14_y], 25
+	add [bush_15_y], 25
+	add [bush_16_y], 25
 	call randomroad
+
+	call random_bush
 
 	call timelimit
 	call printscore
@@ -1846,11 +2294,328 @@ continue:
 	call roads_cars_loop
 
 	call printduck
+	mov [bushtuch], 0
+	mov [bushtuchleft], 0
+	mov [bushtuchright], 0
 	
 	popa
 	ret
 ENDP move_cube
+
+
+PROC check_duck_bushes
+	pusha
+
+	mov ah, 0
+	mov al, 20
+	mov dx, [bush_all_y]
+	add dx, ax
+	add dx, 25
+	mov ah, 32  ; bush x,y down.
+
+
+cube_check1: ; check if the cube is touching the bush.
+
+	mov cx, [y_pos]
+	cmp cx, dx
+	jg left_check_bush
+	add cx, 20
+	cmp cx, dx
+	jl left_check_bush
+
+	mov cx, [bush_all_x]
+	mov dx, [x_pos]
+
+	add dx, 20
+	cmp cx, dx
+	jg left_check_bush
+	sub dx, 50
+	cmp cx, dx
+	jl left_check_bush
+
+dont_let_player_move:
+	mov [bushtuch], 1
+
+left_check_bush:
+	mov dx, [bush_all_y]
+	mov ah, 32  ; bush x,y down.
+
+; check if the cube is touching the bush.
+
+	mov cx, [y_pos]
+	cmp cx, dx
+	jg right_check_bush
+	add cx, 20
+	cmp cx, dx
+	jl right_check_bush
+
+	mov cx, [bush_all_x]
+	mov dx, [x_pos]
 	
+	add dx, 40
+	cmp cx, dx
+	jg right_check_bush
+	sub dx, 40
+	cmp cx, dx
+	jl right_check_bush
+	
+	mov [bushtuchright], 1
+
+right_check_bush:
+	mov dx, [bush_all_y]
+	mov ah, 32  ; bush x,y down.
+
+; check if the cube is touching the bush.
+
+	mov cx, [y_pos]
+	cmp cx, dx
+	jg keep_play1
+	add cx, 20
+	cmp cx, dx
+	jl keep_play1
+
+	mov cx, [bush_all_x]
+	add cx, 32
+	mov dx, [x_pos]
+
+	add dx, 20
+	cmp cx, dx
+	jg keep_play1
+	sub dx, 40
+	cmp cx, dx
+	jl keep_play1
+
+	mov [bushtuchleft], 1
+keep_play1:
+
+	popa
+	ret
+ENDP check_duck_bushes
+
+
+PROC printbush1
+    pusha
+    
+    ; cx = x, dx = y
+	mov cx, [bush_all_x]
+	mov dx, [bush_all_y]
+	mov bx, offset bush1
+	mov [bush_all], 1
+
+	cmp dx, 180
+	jg enddd
+	jmp bush1loop
+
+enddd:
+	mov [bush_all], 0
+	jmp endd
+    
+bush1loop:
+    mov al, [bx]
+    add bx, 1
+
+    cmp al, '$'
+    je endd
+
+    cmp al, 't'
+    je got_ttt
+
+    cmp al, "n"
+    je got_nnn
+
+        ; need cx = x, dx = y, al = color
+    mov ah, 0ch
+    int 10h
+
+    jmp bush1loop
+
+got_ttt:
+    add cx, 1
+    jmp bush1loop
+        
+got_nnn:
+    add dx, 1
+    mov cx, [bush_all_x]
+    jmp bush1loop
+
+endd:
+        popa
+        ret
+endp printbush1
+
+
+PROC random_bush
+	pusha
+
+	call randomnum255
+	xor ax, ax
+bs1:
+	cmp [bush_1], 1
+	je bs2
+	mov ax, [random]
+	mov [bush_1_y], 5
+	mov ah, 0
+	mov [bush_1_x], ax
+	mov [bush_1], 1
+	jmp end_bushes
+
+bs2:
+	cmp [bush_2], 1
+	je bs3
+	mov ax, [random]
+	mov [bush_2_y], 5
+	mov ah, 0
+	mov [bush_2_x], ax
+	mov [bush_2], 1
+	jmp end_bushes
+
+bs3:
+	cmp [bush_3], 1
+	je bs4
+	mov ax, [random]
+	mov [bush_3_y], 5
+	mov ah, 0
+	mov [bush_3_x], ax
+	mov [bush_3], 1
+	jmp end_bushes
+
+bs4:
+	cmp [bush_4], 1
+	je bs5
+	mov ax, [random]
+	mov [bush_4_y], 5
+	mov ah, 0
+	mov [bush_4_x], ax
+	mov [bush_4], 1
+	jmp end_bushes
+
+bs5:
+	cmp [bush_5], 1
+	je bs6
+	mov ax, [random]
+	mov [bush_5_y], 5
+	mov ah, 0
+	mov [bush_5_x], ax
+	mov [bush_5], 1
+	jmp end_bushes
+
+bs6:
+	cmp [bush_6], 1
+	je bs7
+	mov ax, [random]
+	mov [bush_6_y], 5
+	mov ah, 0
+	mov [bush_6_x], ax
+	mov [bush_6], 1
+	jmp end_bushes
+
+bs7:
+	cmp [bush_7], 1
+	je bs8
+	mov ax, [random]
+	mov [bush_7_y], 5
+	mov ah, 0
+	mov [bush_7_x], ax
+	mov [bush_7], 1
+	jmp end_bushes
+
+bs8:
+	cmp [bush_8], 1
+	je bs9
+	mov ax, [random]
+	mov [bush_8_y], 5
+	mov ah, 0
+	mov [bush_8_x], ax
+	mov [bush_8], 1
+	jmp end_bushes
+
+bs9:
+	cmp [bush_9], 1
+	je bs10
+	mov ax, [random]
+	mov [bush_9_y], 5
+	mov ah, 0
+	mov [bush_9_x], ax
+	mov [bush_9], 1
+	jmp end_bushes
+
+bs10:
+	cmp [bush_10], 1
+	je bs11
+	mov ax, [random]
+	mov [bush_10_y], 5
+	mov ah, 0
+	mov [bush_10_x], ax
+	mov [bush_10], 1
+	jmp end_bushes
+
+bs11:
+	cmp [bush_11], 1
+	je bs12
+	mov ax, [random]
+	mov [bush_11_y], 5
+	mov ah, 0
+	mov [bush_11_x], ax
+	mov [bush_11], 1
+	jmp end_bushes
+
+bs12:
+	cmp [bush_2], 1
+	je bs13
+	mov ax, [random]
+	mov [bush_12_y], 5
+	mov ah, 0
+	mov [bush_12_x], ax
+	mov [bush_12], 1
+	jmp end_bushes
+
+bs13:
+	cmp [bush_13], 1
+	je bs14
+	mov ax, [random]
+	mov [bush_13_y], 5
+	mov ah, 0
+	mov [bush_13_x], ax
+	mov [bush_13], 1
+	jmp end_bushes
+
+bs14:
+	cmp [bush_14], 1
+	je bs15
+	mov ax, [random]
+	mov [bush_14_y], 5
+	mov ah, 0
+	mov [bush_14_x], ax
+	mov [bush_14], 1
+	jmp end_bushes
+
+bs15:
+	cmp [bush_15], 1
+	je bs16
+	mov ax, [random]
+	mov [bush_15_y], 5
+	mov ah, 0
+	mov [bush_15_x], ax
+	mov [bush_15], 1
+	jmp end_bushes
+
+bs16:
+	cmp [bush_16], 1
+	je end_bushes
+	mov ax, [random]
+	mov [bush_16_y], 5
+	mov ah, 0
+	mov [bush_16_x], ax
+	mov [bush_16], 1
+	jmp end_bushes
+
+
+end_bushes:
+
+	popa
+	ret
+ENDP random_bush
+
 
 PROC printscore
 	pusha
@@ -2235,10 +3000,10 @@ Carloopr:
     je endb
 
     cmp al, 't'
-    je got_ttt
+    je got_tttt
 
     cmp al, "n"
-    je got_nnn
+    je got_nnnn
 
         ; need cx = x, dx = y, al = color
     mov ah, 0ch
@@ -2246,11 +3011,11 @@ Carloopr:
 
     jmp Carloopr
 
-got_ttt:
+got_tttt:
     add cx, 1
     jmp Carloopr
         
-got_nnn:
+got_nnnn:
     add dx, 1
     mov cx, [car_x]
     jmp Carloopr
@@ -2275,7 +3040,7 @@ PROC randomnum255
     ; inc dx
     ; mov [random], dx
 
-	cmp [random_count], 5
+	cmp [random_count], 2
 	jl keep_random
 	;; get time
     mov ah, 2Ch 
