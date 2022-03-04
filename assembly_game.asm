@@ -210,6 +210,7 @@ car_14 dw 0
 car_14_x dw 0
 car_14_y dw 0
 
+bush_count dw 120
 bushtuch db 0
 bushtuchleft db 0
 bushtuchright db 0
@@ -283,6 +284,7 @@ rulethree_text db "press left button to move left.", "$"
 rulefour_text db "when you move up, the score increased!", "$"
 rulefive_text db "if the car hit you, you lose!", "$"
 rulesix_text db "if the time limit get to 0 you lose!", "$"
+ruleseven_text db "you can't move throw bushes!", "$"
 start__messege db "Press any button to Start Play", "$"
 
 
@@ -471,6 +473,17 @@ printbesttext:
 
 	mov ah, 09h ; write string to standart output
 	lea dx, [rulesix_text]
+	int 21h
+
+
+	mov ah, 02h ; cursor position
+	mov bh, 02h ; page number
+	mov dh, 11h ; row
+	mov dl, 01h ; columns
+	int 10h
+
+	mov ah, 09h ; write string to standart output
+	lea dx, [ruleseven_text]
 	int 21h
 
 
@@ -2278,10 +2291,29 @@ everythingUp:
 	add [bush_16_y], 25
 	call randomroad
 
-	call random_bush
 
 	call timelimit
 	call printscore
+	
+	mov dx, 150
+	mov cx, [score]
+	sub dx, cx
+	cmp cx, 149
+	jg scoreisbig
+
+	cmp [bush_count], dx
+	jl continue
+	mov [bush_count], 0
+	call random_bush
+	jmp continue
+
+scoreisbig:
+	call random_bush
+	add dx, 150
+	cmp [bush_count], dx
+	jl continue
+	mov [bush_count], 0
+	call random_bush
 	jmp continue
 
 continue:
@@ -2297,6 +2329,8 @@ continue:
 	mov [bushtuch], 0
 	mov [bushtuchleft], 0
 	mov [bushtuchright], 0
+
+	add [bush_count], 30
 	
 	popa
 	ret
@@ -2352,10 +2386,10 @@ left_check_bush:
 	mov cx, [bush_all_x]
 	mov dx, [x_pos]
 	
-	add dx, 40
+	add dx, 35
 	cmp cx, dx
 	jg right_check_bush
-	sub dx, 40
+	sub dx, 35
 	cmp cx, dx
 	jl right_check_bush
 	
@@ -2381,7 +2415,7 @@ right_check_bush:
 	add dx, 20
 	cmp cx, dx
 	jg keep_play1
-	sub dx, 40
+	sub dx, 35
 	cmp cx, dx
 	jl keep_play1
 
