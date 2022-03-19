@@ -118,6 +118,27 @@ bush1   db 't','t','t','t','t','t','t','t','t','t',2,'t',2,'t',2,'t','t','t','t'
 		db "$"
 
 
+bush2   db 't','t','t','t','t','t','t','t','t','t',2,'t',2,'t',2,'t','t','t','t','t','t','t','t','t','t','t',2,'t',2,'t',2,'t','t','t','t','t','t','t','t','t','t','t','t','t',"n"
+		db 't','t','t','t','t','t','t','t',2,'t',2,'t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t','t','t','t','t','t','t',2,'t',2,'t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t','t','t','t','t','t','t','t','t','t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t','t','t','t','t','t',"n"
+		db 't','t','t','t','t','t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t',10,'t','t','t','t','t','t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t',10,'t','t','t','t','t','t','t','t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',2,'t',10,'t',10,'t','t','t','t',"n"
+		db 't','t','t','t',2,'t',2,'t',2,'t',22,'t',22,'t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t',,22,'t',22,'t','t','t',2,'t',22,'t',22,'t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t',2,'t',2,'t',22,'t',22,'t','t','t','t','t','t',2,'t',2,'t',2,'t',22,'t',22,'t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t','t','t',"n"
+		db 't','t','t','t',2,'t',2,'t',2,'t',22,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',22,'t',22,'t',2,'t',2,'t',2,'t',2,'t',22,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',22,'t',22,'t',22,'t',22,'t',2,'t','t','t',2,'t',2,'t',2,'t',22,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',2,'t','t',"n"
+		db 't','t','t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',,2,'t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',2,'t',2,'t',2,'t',2,'t',2,'t',10,'t',10,'t',2,'t',2,'t',2,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',10,'t',2,'t','t','t',"n"
+		db 't','t','t',2,'t',2,'t',2,'t',10,'t',2,'t',10,'t',2,'t',2,'t',2,'t',2,'t',2,'t',22,'t',2,'t',10,'t',10,'t',10,'t',2,'t',2,'t',2,'t',10,'t',2,'t',10,'t',2,'t',2,'t',2,'t',2,'t',2,'t',22,'t',2,'t',10,'t',10,'t',10,'t',10,'t',10,'t',2,'t',2,'t',2,'t',10,'t',2,'t',10,'t',2,'t',2,'t',2,'t',2,'t',2,'t',22,'t',2,'t','t',"n"
+		db 't','t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',10,'t',2,'t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',10,'t',2,'t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',10,'t','t',"n"
+		db 't','t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',"n"
+		db 't','t',2,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',2,'t',20,'t',"n"
+		db 't','t',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',22,'t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',22,'t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',2,'t',20,'t',2,'t',20,'t',"n"
+		db 't',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',22,'t',22,'t',2,'t',29,'t',29,'t',29,'t',22,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',22,'t',22,'t',2,'t',29,'t',29,'t',29,'t',29,'t',29,'t',20,'t',20,'t',2,'t',22,'t',22,'t',22,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',22,'t',22,'t',22,'t',22,'t',22,'t',22,'t',29,'t',"n"
+		db 't',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',22,'t',22,'t',22,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',"n"
+		db 't',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',22,'t',22,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',"n"
+		db 29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',2,'t',20,'t',20,'t',20,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',22,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',"n"
+		db 29,'t',29,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',20,'t',2,'t',2,'t',20,'t',20,'t',29,'t',29,'t',29,'t',29,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',2,'t',20,"n"
+		db 2,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',2,'t',36,'t',36,'t',36,'t',36,'t',36,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',20,'t',2,'t',36,'t',36,'t',36,'t',36,'t',36,'t',2,'t',29,'t',29,'t',20,'t',29,'t',29,'t',2,'t',29,'t',2,'t',2,'t',2,'t',36,"n"
+		db 29,'t',29,'t',29,'t',29,'t',29,'t',29,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',17,'t',17,'t',17,'t',17,'t',29,'t',29,'t',29,'t',29,'t',29,'t',29,'t',2,'t',2,'t',2,'t',2,'t',2,'t',2,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',17,'t',2,'t',2,'t',2,'t',2,'t',2,'t',29,'t',29,'t',29,'t',29,'t',29,'t',29,'t',17,"n"
+		db "$"
+
+
 start_over_messege db "Press any button to Play Again", '$'
 hundreds_score db 0
 text_hundreds_score db "0", '$'
@@ -210,6 +231,7 @@ car_14 dw 0
 car_14_x dw 0
 car_14_y dw 0
 
+bushkind dw 0
 bush_count dw 120
 bushtuch db 0
 bushtuchleft db 0
@@ -1045,7 +1067,7 @@ bsh3:
 	mov ax, [bush_3_y]
 	mov [bush_all_y], ax
 
-	call printbush1
+	call printbush2
 
 	mov ax, [bush_all_x]
 	mov [bush_3_x], ax
@@ -1054,7 +1076,7 @@ bsh3:
 	mov ax, [bush_all]
 	mov [bush_3], ax
 
-	call check_duck_bushes
+	call check_duck_bushes2
 
 bsh4:
 	cmp [bush_4], 0
@@ -1102,7 +1124,7 @@ bsh6:
 	mov ax, [bush_6_y]
 	mov [bush_all_y], ax
 
-	call printbush1
+	call printbush2
 
 	mov ax, [bush_all_x]
 	mov [bush_6_x], ax
@@ -1111,7 +1133,7 @@ bsh6:
 	mov ax, [bush_all]
 	mov [bush_6], ax
 
-	call check_duck_bushes
+	call check_duck_bushes2
 
 bsh7:
 	cmp [bush_7], 0
@@ -1159,7 +1181,7 @@ bsh9:
 	mov ax, [bush_9_y]
 	mov [bush_all_y], ax
 
-	call printbush1
+	call printbush2
 
 	mov ax, [bush_all_x]
 	mov [bush_9_x], ax
@@ -1168,7 +1190,7 @@ bsh9:
 	mov ax, [bush_all]
 	mov [bush_9], ax
 
-	call check_duck_bushes
+	call check_duck_bushes2
 
 bsh10:
 	cmp [bush_10], 0
@@ -1216,7 +1238,7 @@ bsh12:
 	mov ax, [bush_12_y]
 	mov [bush_all_y], ax
 
-	call printbush1
+	call printbush2
 
 	mov ax, [bush_all_x]
 	mov [bush_12_x], ax
@@ -1225,7 +1247,7 @@ bsh12:
 	mov ax, [bush_all]
 	mov [bush_12], ax
 
-	call check_duck_bushes
+	call check_duck_bushes2
 
 bsh13:
 	cmp [bush_13], 0
@@ -1273,7 +1295,7 @@ bsh15:
 	mov ax, [bush_15_y]
 	mov [bush_all_y], ax
 
-	call printbush1
+	call printbush2
 
 	mov ax, [bush_all_x]
 	mov [bush_15_x], ax
@@ -1282,7 +1304,7 @@ bsh15:
 	mov ax, [bush_all]
 	mov [bush_15], ax
 
-	call check_duck_bushes
+	call check_duck_bushes2
 
 bsh16:
 	cmp [bush_16], 0
@@ -2360,10 +2382,10 @@ cube_check1: ; check if the cube is touching the bush.
 	mov cx, [bush_all_x]
 	mov dx, [x_pos]
 
-	add dx, 20
+	add dx, 10
 	cmp cx, dx
 	jg left_check_bush
-	sub dx, 50
+	sub dx, 30
 	cmp cx, dx
 	jl left_check_bush
 
@@ -2386,10 +2408,10 @@ left_check_bush:
 	mov cx, [bush_all_x]
 	mov dx, [x_pos]
 	
-	add dx, 35
+	add dx, 30
 	cmp cx, dx
 	jg right_check_bush
-	sub dx, 35
+	sub dx, 30
 	cmp cx, dx
 	jl right_check_bush
 	
@@ -2415,7 +2437,7 @@ right_check_bush:
 	add dx, 20
 	cmp cx, dx
 	jg keep_play1
-	sub dx, 35
+	sub dx, 30
 	cmp cx, dx
 	jl keep_play1
 
@@ -2425,6 +2447,95 @@ keep_play1:
 	popa
 	ret
 ENDP check_duck_bushes
+
+
+PROC check_duck_bushes2
+	pusha
+
+	mov ah, 0
+	mov al, 20
+	mov dx, [bush_all_y]
+	add dx, ax
+	add dx, 25
+	mov ah, 32  ; bush x,y down.
+
+
+cube_check2: ; check if the cube is touching the bush.
+
+	mov cx, [y_pos]
+	cmp cx, dx
+	jg left_check_bush2
+	add cx, 20
+	cmp cx, dx
+	jl left_check_bush2
+
+	mov cx, [bush_all_x]
+	mov dx, [x_pos]
+
+	sub dx, 5
+	cmp cx, dx
+	jg left_check_bush2
+	sub dx, 95
+	cmp cx, dx
+	jl left_check_bush2
+
+	mov [bushtuch], 1
+
+left_check_bush2:
+	mov dx, [bush_all_y]
+	mov ah, 32  ; bush x,y down.
+
+; check if the cube is touching the bush.
+
+	mov cx, [y_pos]
+	cmp cx, dx
+	jg right_check_bush2
+	add cx, 20
+	cmp cx, dx
+	jl right_check_bush2
+
+	mov cx, [bush_all_x]
+	mov dx, [x_pos]
+	
+	add dx, 32
+	cmp cx, dx
+	jg right_check_bush2
+	sub dx, 32
+	cmp cx, dx
+	jl right_check_bush2
+	
+	mov [bushtuchright], 1
+
+right_check_bush2:
+	mov dx, [bush_all_y]
+	mov ah, 32  ; bush x,y down.
+
+; check if the cube is touching the bush.
+
+	mov cx, [y_pos]
+	cmp cx, dx
+	jg keep_play12
+	add cx, 20
+	cmp cx, dx
+	jl keep_play12
+
+	mov cx, [bush_all_x]
+	add cx, 65
+	mov dx, [x_pos]
+
+	add dx, 20
+	cmp cx, dx
+	jg keep_play12
+	sub dx, 30
+	cmp cx, dx
+	jl keep_play12
+
+	mov [bushtuchleft], 1
+keep_play12:
+
+	popa
+	ret
+ENDP check_duck_bushes2
 
 
 PROC printbush1
@@ -2476,6 +2587,57 @@ endd:
         popa
         ret
 endp printbush1
+
+
+PROC printbush2
+    pusha
+    
+    ; cx = x, dx = y
+	mov cx, [bush_all_x]
+	mov dx, [bush_all_y]
+	mov bx, offset bush2
+	mov [bush_all], 1
+
+	cmp dx, 180
+	jg endddd
+	jmp bush2loop
+
+endddd:
+	mov [bush_all], 0
+	jmp en
+    
+bush2loop:
+    mov al, [bx]
+    add bx, 1
+
+    cmp al, '$'
+    je en
+
+    cmp al, 't'
+    je got_tttt
+
+    cmp al, "n"
+    je got_nnnn
+
+        ; need cx = x, dx = y, al = color
+    mov ah, 0ch
+    int 10h
+
+    jmp bush2loop
+
+got_tttt:
+    add cx, 1
+    jmp bush2loop
+        
+got_nnnn:
+    add dx, 1
+    mov cx, [bush_all_x]
+    jmp bush2loop
+
+en:
+        popa
+        ret
+endp printbush2
 
 
 PROC random_bush
@@ -3034,10 +3196,10 @@ Carloopr:
     je endb
 
     cmp al, 't'
-    je got_tttt
+    je got_ttttt
 
     cmp al, "n"
-    je got_nnnn
+    je got_nnnnn
 
         ; need cx = x, dx = y, al = color
     mov ah, 0ch
@@ -3045,11 +3207,11 @@ Carloopr:
 
     jmp Carloopr
 
-got_tttt:
+got_ttttt:
     add cx, 1
     jmp Carloopr
         
-got_nnnn:
+got_nnnnn:
     add dx, 1
     mov cx, [car_x]
     jmp Carloopr
