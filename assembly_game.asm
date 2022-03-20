@@ -1630,7 +1630,7 @@ PROC timelimit
 
 	mov al, 0
 
-	cmp [timelimitcountsec], 23
+	cmp [timelimitcountsec], 30
 	jl startprintlimit
 
 	mov [timelimitcountsec], 0
@@ -2472,10 +2472,10 @@ cube_check2: ; check if the cube is touching the bush.
 	mov cx, [bush_all_x]
 	mov dx, [x_pos]
 
-	sub dx, 5
+	add dx, 5
 	cmp cx, dx
 	jg left_check_bush2
-	sub dx, 95
+	sub dx, 50
 	cmp cx, dx
 	jl left_check_bush2
 
