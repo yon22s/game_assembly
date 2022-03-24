@@ -149,7 +149,7 @@ max_hundreds_score db 0
 max_text_hundreds_score db "0", '$'
 max_text_units_score db "0", '$'
 max_text_dozens_score db "0", '$'
-max_score dw 0
+max_score dw 261
 multi dw 0
 
 second_now db 0
@@ -1630,7 +1630,7 @@ PROC timelimit
 
 	mov al, 0
 
-	cmp [timelimitcountsec], 30
+	cmp [timelimitcountsec], 32
 	jl startprintlimit
 
 	mov [timelimitcountsec], 0
@@ -2472,7 +2472,7 @@ cube_check2: ; check if the cube is touching the bush.
 	mov cx, [bush_all_x]
 	mov dx, [x_pos]
 
-	add dx, 5
+	;add dx, 10
 	cmp cx, dx
 	jg left_check_bush2
 	sub dx, 50
