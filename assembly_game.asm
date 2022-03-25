@@ -293,6 +293,8 @@ timelimitcountsec dw 0
 timelimitnum db 5
 texttimelimitnum db "5", "$"
 
+count_runing dw 0
+second_runing dw 0
 
 
 pressEscbutton db "Press Esc button to see the rules", "$"
@@ -624,6 +626,8 @@ PROC starts
 	mov [roadsonscrine], 3
 	mov [text_units_score], "0"
 	mov [random_count], 0
+	mov [count_runing], 0
+	mov [second_runing], 0
 
 	;; get time
     mov ah, 2Ch 
@@ -684,6 +688,7 @@ ENDP starts
 
 PROC roads_cars_loop
 	pusha
+	call stop_runing
 
 road1:
 	cmp [road_1], 0
@@ -2200,6 +2205,19 @@ passeverything:
 ENDP move_car_right
 
 
+PROC stop_runing
+	inc [second_runing]
+
+	cmp [second_runing], 25
+	jl llll
+	mov [count_runing], 0
+	mov [second_runing], 0
+
+llll:
+	ret
+ENDP stop_runing
+
+
 PROC move_cube
 	pusha
 
@@ -2242,9 +2260,12 @@ PROC move_cube
 up_pressed:
 	cmp [bushtuch], 1
 	je continue
+	cmp [count_runing], 8
+	jg continue
 
 	inc [score]
 	inc [random_count]
+	inc [count_runing]
 	mov [timelimitnum], 5
 	mov [timelimitcountsec], 0
 	call printscore
